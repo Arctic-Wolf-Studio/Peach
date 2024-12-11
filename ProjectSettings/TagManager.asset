@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Projectile
+  - PowerUp
+  - Enemy
+  - EnemyPath
+  - Path
+  - NPCPath
+  - Princess
+  - Cannon
+  - Weapon Manager
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - GROUND
+  - OBJECTS
+  - PROJECTILES
+  - ENEMIES
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Environment
+    uniqueID: 2332119869
+    locked: 0
+  - name: Tower
+    uniqueID: 1947349207
+    locked: 0
+  - name: Enemies
+    uniqueID: 1879289205
+    locked: 0
+  - name: Projectiles
+    uniqueID: 592699999
+    locked: 0
+  - name: Princess
+    uniqueID: 4032728705
+    locked: 0
+  - name: Weapon
+    uniqueID: 2958754057
+    locked: 0
+  - name: Power Ups
+    uniqueID: 3967069661
+    locked: 0
+  - name: UI
+    uniqueID: 1034490779
+    locked: 0

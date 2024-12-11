@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20825d1770e906a4dbfb59343db3e76e, type: 3}
+  m_Name: Shotgun
+  m_EditorClassIdentifier: 
+  sprite: {fileID: -1921292470461576149, guid: f7d9133f0d0efd2458c800b8f04ceeae, type: 3}
+  projectile: {fileID: 5446903189629935520, guid: 6eaeab2320198024b8c8e171648286ff, type: 3}
+  weaponName: Shotgun
+  weaponID: 1
+  ammunition: 6
+  mag: 2
+  fireRate: 1.2
+  reload: 2.5
+  speed: 15
+  punch: 10
