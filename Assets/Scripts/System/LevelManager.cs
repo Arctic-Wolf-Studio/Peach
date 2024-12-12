@@ -6,6 +6,12 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour {
 
+    [Header("Componenets")]
+    public PrincessController p_controller;
+    public PrincessStats stats;
+    public PrincessUpdate update;
+    public WeaponFire Weapon;
+
     public RectTransform marker;
     public Transform startPoint;
     public Transform scorebear;
@@ -28,10 +34,7 @@ public class LevelManager : MonoBehaviour {
     public string musicFile;
     [SerializeField] private float fileVolume;
 
-    public PrincessController p_controller;
-    public PrincessStats stats;
-    public PrincessUpdate update;
-    public WeaponFire Weapon;
+    
 
     private float scorbearDistance;
     private float scorbearY;

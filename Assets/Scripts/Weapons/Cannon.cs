@@ -35,7 +35,7 @@ public class Cannon : MonoBehaviour {
 
 
     void FixedUpdate() {
-        if (cannonFire) {
+        if (cannonFire && isActive) {
             FireCannon();
         }
     }
@@ -50,7 +50,7 @@ public class Cannon : MonoBehaviour {
             princessRB.gravityScale = 1;
             princessRB.AddForce(new Vector2(cannonPower, jumpForce), ForceMode2D.Impulse);
 
-            cannonFire = false;
+            cannonFire = true;
             isActive = false;
             fireCannon.SetActive(false);
         } 

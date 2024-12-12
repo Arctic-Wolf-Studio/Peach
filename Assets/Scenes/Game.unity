@@ -209,7 +209,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 305966300}
   nextPosition: 1032
-  target: {x: 0, y: 0, z: 0}
 --- !u!1 &42302306
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +684,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: {fileID: 34525381}
   nextPosition: 1032
-  target: {x: 0, y: 0, z: 0}
 --- !u!1 &307052941
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +828,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 736558363}
   - {fileID: 1061351772}
   - {fileID: 429540943}
   - {fileID: 1644586278}
@@ -921,7 +920,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 369764094}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &369764094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1188,6 +1199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 429540943}
+  - component: {fileID: 429540944}
   m_Layer: 0
   m_Name: System Update
   m_TagString: Untagged
@@ -1208,8 +1220,81 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 350402989}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429540944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429540942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da1b2692eee83b4b9f3a7f9477b1f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievement:
+    bullets_fired: 0
+    coins_earned: 0
+    distance_traveled: 0
+    enemies_stunned: 0
+    jewels_earned: 0
+  princess: {fileID: 0}
+  progress:
+    bulletsFired: 0
+    enemiesStunned: 0
+    coinsEarned: 0
+    distanceTraveled: 0
+    JewelsEarned: 0
+    coins: 0
+    crowns: 0
+    score: 0
+    distance: 0
+    cannonPower: 0
+    jumpForce: 0
+    next_cannon_power: 0
+    cannon_level: 0
+    cannon_cost: 0
+    currentWeapon: 0
+    currentDress: 0
+    currentBandolier: 0
+    armsSnuggling: 0
+    artisanSlugs: 0
+    betterGunpowder: 0
+    lightSilks: 0
+    reinforcedCorset: 0
+    rubBloomers: 0
+    scorpionTraps: 0
+    shotPractice: 0
+    widerDress: 0
+    armsSnugglingCost: 0
+    artisanRoundsCost: 0
+    betterGunpowderCost: 0
+    lightSilksCost: 0
+    reinforcedCorsetCost: 0
+    rubbloomersCost: 0
+    scorpionTrapsCost: 0
+    shotPracticeCost: 0
+    widerDressCost: 0
+    armsSnugglingLvl: 0
+    artisanRoundsLvl: 0
+    betterGunpowderLvl: 0
+    lightSilksLvl: 0
+    packedPowderLvl: 0
+    reinforcedCorsetLvl: 0
+    rubbloomersLvl: 0
+    scorpionTrapsLvl: 0
+    shotPracticeLvl: 0
+    widerDressLvl: 0
+  loadingScreen: {fileID: 0}
+  bar: {fileID: 0}
+  textField: {fileID: 0}
+  tipsText: {fileID: 0}
+  backgrounds: []
+  backgroundImage: {fileID: 0}
+  tips: []
+  tipCount: 0
 --- !u!1 &433732438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2112,7 +2197,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 350402989}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &675005428
 MonoBehaviour:
@@ -2212,7 +2297,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 686207329}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &686207329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2251,6 +2348,93 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686207326}
   m_CullTransparentMesh: 1
+--- !u!1 &736558362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 736558363}
+  - component: {fileID: 736558364}
+  m_Layer: 0
+  m_Name: AI Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &736558363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736558362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 350402989}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &736558364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736558362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6371f3ccc5a9d4781b3a272189f042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flyEye: {fileID: 0}
+  flyingMonkey: {fileID: 0}
+  thunderOoze: {fileID: 0}
+  bird: {fileID: 0}
+  cat: {fileID: 0}
+  chameleon: {fileID: 0}
+  monkey: {fileID: 0}
+  squirrel: {fileID: 0}
+  turtle: {fileID: 0}
+  cooldownTime: 10
+  nextActivation: 0
+  flyEyeSpawn: {fileID: 0}
+  flyingMonkeySpawn: {fileID: 0}
+  thunderOozeSpawn: {fileID: 0}
+  cooldownText1: {fileID: 0}
+  cooldownText2: {fileID: 0}
+  cooldownText3: {fileID: 0}
+  cooldownText4: {fileID: 0}
+  cooldownText5: {fileID: 0}
+  cooldownText6: {fileID: 0}
+  princess: {fileID: 0}
+  singing: {fileID: 0}
+  maximumEnemies: 0
+  maxFlyEyes: 0
+  flyEyeCounter: 0
+  maxFlyingMonkeys: 0
+  flyingMonkeyCounter: 0
+  maxThunderOozes: 0
+  thunderOozeCounter: 0
+  cooldownleft: 0
+  flyEyeCooldown: 0
+  monkeyCooldown: 0
+  thunderoozeCooldown: 0
+  scaleX: 0
+  scaleY: 0
+  cooldownBird: 0
+  cooldownCat: 0
+  cooldownChameleon: 0
+  cooldownMonkey: 0
+  cooldownSquirrel: 0
+  cooldownTurtle: 0
+  counter: 0
+  maxCounter: 0
 --- !u!1 &753182138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2792,7 +2976,7 @@ GameObject:
   - component: {fileID: 1061351772}
   - component: {fileID: 1061351773}
   m_Layer: 0
-  m_Name: Level Update
+  m_Name: Level Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2811,7 +2995,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 350402989}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1061351773
 MonoBehaviour:
@@ -2825,14 +3009,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c50ff2e3f2fa217469ec9c7c4b7f081b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p_controller: {fileID: 0}
+  stats: {fileID: 0}
+  update: {fileID: 0}
+  Weapon: {fileID: 0}
   marker: {fileID: 0}
   startPoint: {fileID: 0}
   scorebear: {fileID: 0}
   _marker: {fileID: 0}
   defeatImage: {fileID: 0}
-  gameOverMenu: {fileID: 0}
-  infoPanel: {fileID: 0}
-  powerUPHUD: {fileID: 0}
+  gameOverMenu: {fileID: 1261288060}
+  infoPanel: {fileID: 192364128}
+  powerUPHUD: {fileID: 42302306}
   purse: {fileID: 0}
   coinsCollected: {fileID: 0}
   distanceCounter: {fileID: 0}
@@ -2843,10 +3031,6 @@ MonoBehaviour:
   mainVolume: {fileID: 0}
   musicFile: 
   fileVolume: 0
-  p_controller: {fileID: 0}
-  stats: {fileID: 0}
-  update: {fileID: 0}
-  Weapon: {fileID: 0}
   distance: 0
   score: 0
   kills: 0
@@ -4099,7 +4283,7 @@ GameObject:
   - component: {fileID: 1577843525}
   - component: {fileID: 1577843524}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: Jewel Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4385,7 +4569,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 350402989}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1795059706
 GameObject:
@@ -4399,7 +4583,7 @@ GameObject:
   - component: {fileID: 1795059709}
   - component: {fileID: 1795059708}
   m_Layer: 5
-  m_Name: coin
+  m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4682,7 +4866,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1808113160}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1808113160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4804,7 +5000,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1847319028}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1847319028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4931,7 +5139,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1867391676}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1867391676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5238,7 +5458,7 @@ GameObject:
   - component: {fileID: 1950076977}
   - component: {fileID: 1950076976}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Coin Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5528,7 +5748,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2072736812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2072736812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5597,7 +5829,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 350402989}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2091426015
 MonoBehaviour:
@@ -5707,7 +5939,7 @@ GameObject:
   - component: {fileID: 2114057881}
   - component: {fileID: 2114057880}
   m_Layer: 5
-  m_Name: jewel
+  m_Name: Jewel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6333,9 +6565,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1855399628}
     - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
+      propertyPath: reload
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 675005428}
+    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: projectile
       value: 
@@ -6345,7 +6585,19 @@ PrefabInstance:
       value: 8192
       objectReference: {fileID: 0}
     - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
+      propertyPath: magazineSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: readyToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
+      propertyPath: bullectsPerTap
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
+      propertyPath: timeBetweeenShots
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9018356621655864923, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}

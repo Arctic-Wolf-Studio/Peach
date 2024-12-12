@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class WeaponFire : MonoBehaviour {
 
+    [Header("Components")]
+    private Cannon cannon;
+    public WeaponManager manager;
+    private PrincessController princess;
+
     public static Action<float, float> shotMovement;
 
     public int damage;
@@ -24,16 +29,10 @@ public class WeaponFire : MonoBehaviour {
     Vector3 difference;
 
     public Transform barrel;
-    public GameObject muzzleFlash;
+    //public GameObject muzzleFlash;
     public GameObject projectile;
-    public RaycastHit2D raycastHit2D;
-    public LayerMask enemy;
 
     public bool allowInvoke = true;
-
-    private Cannon cannon;
-    public WeaponManager manager;
-    private PrincessController princess;
 
     private void Awake() {
         cannon = GameObject.FindGameObjectWithTag("Cannon").GetComponent<Cannon>();
@@ -106,11 +105,15 @@ public class WeaponFire : MonoBehaviour {
         float y = UnityEngine.Random.Range(-spread, spread);
 
 
-        if (!muzzleFlash.activeInHierarchy) {
+        /*if (!muzzleFlash.activeInHierarchy) {
             Instantiate(muzzleFlash, barrel.position, barrel.rotation);
-        }
+        }*/
 
-        Instantiate(projectile, barrel.position, barrel.rotation);
+        Vector2 shootDirection = transform.forward;
+        shootDirection.Normalize();
+
+        GameObject bullet = Instantiate(projectile, barrel.position, barrel.rotation);
+        bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * shootForce;
 
 
         bulletsLeft--;
