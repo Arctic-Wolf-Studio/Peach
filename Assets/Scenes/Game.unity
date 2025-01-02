@@ -1935,7 +1935,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 9.452594}
+  m_Offset: {x: 0, y: 9.023983}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1946,7 +1946,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 19.905188}
+  m_Size: {x: 1, y: 19.047966}
   m_EdgeRadius: 0
 --- !u!1 &585344994
 GameObject:
@@ -5135,11 +5135,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847319025}
   m_CullTransparentMesh: 1
---- !u!4 &1855399628 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8092643191906880489, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-  m_PrefabInstance: {fileID: 9018356621294771607}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867391673
 GameObject:
   m_ObjectHideFlags: 0
@@ -6636,69 +6631,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 14895755}
     m_Modifications:
-    - target: {fileID: 5736259810512963665, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6385532679130328527, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: maxHeight
-      value: 450
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: barrel
-      value: 
-      objectReference: {fileID: 1855399628}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: reload
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 675005428}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: fireRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 5446903189629935520, guid: 6eaeab2320198024b8c8e171648286ff, type: 3}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: enemy.m_Bits
-      value: 8192
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: magazineSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: readyToShoot
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: bullectsPerTap
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: timeBetweeenShots
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8400591922501727494, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: m_TagString
-      value: Weapon
+    - target: {fileID: 9018356621655864921, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9018356621655864923, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018356621655864925, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9018356621655864925, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: _animationName
-      value: Idle
       objectReference: {fileID: 0}
     - target: {fileID: 9018356621655864926, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: m_RootOrder

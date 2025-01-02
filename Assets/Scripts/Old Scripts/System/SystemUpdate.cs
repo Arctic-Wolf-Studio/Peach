@@ -31,6 +31,7 @@ public class SystemUpdate : MonoBehaviour {
         upgrade = new UpgradeObject();
         princess = new PrincessObject();
         cannon = new CannonObject();
+        SaveSystem.SavePlayer(this);
         SaveSystem.LoadPlayer();
     }
 
