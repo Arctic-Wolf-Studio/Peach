@@ -13,6 +13,8 @@ TagManager:
   - Princess
   - Cannon
   - Weapon Manager
+  - Crosshair
+  - Weapon
   layers:
   - Default
   - TransparentFX

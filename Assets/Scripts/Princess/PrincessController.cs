@@ -14,11 +14,17 @@ public class PrincessController : MonoBehaviour {
     public PrincessStats stats;
     public PrincessUpdate update;
 
+    public Transform crosshair; 
+    SpriteRenderer crossHairColor;
+
     [SerializeField] private LayerMask ground;
     [SerializeField] public Transform groundCheck;
     public Rigidbody2D rb;
 
     [SerializeField] float maxHeight;
+    float rotation;
+
+    Vector3 mousePosition, difference;
 
     private void OnEnable() {
         WeaponFire.shotMovement += WeaponMovement;
@@ -36,9 +42,13 @@ public class PrincessController : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         stats = GetComponent<PrincessStats>();
         update = GetComponent<PrincessUpdate>();
+        crosshair = GameObject.FindGameObjectWithTag("Crosshair").transform;
+
+        Cursor.visible = false;
     }
 
     private void Update() {
+        PrincessRotation();
         SuperHeroSlam();
             
     }
@@ -59,6 +69,21 @@ public class PrincessController : MonoBehaviour {
 
     private bool OnGround() {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, ground);
+    }
+
+    private void PrincessRotation() {
+
+        mousePosition = UtilsClass.GetMouseWorldPosition();
+
+        crosshair.position = new Vector2(mousePosition.x, mousePosition.y);
+        crossHairColor = crosshair.GetComponent<SpriteRenderer>();
+        crossHairColor.color = Color.red;
+
+        difference = transform.position - crosshair.position;
+        difference.Normalize();
+
+        rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotation);
     }
 
     public void WeaponMovement(float force, float altitude) {
