@@ -98,7 +98,10 @@ public class UpgradeManager : MonoBehaviour {
             princess.coins -= upgrade.reinforcedCorsetCost;
             upgrade.reinforcedCorset += 5;
             upgrade.reinforcedCorsetCost *= 2;
-            upgrade.reinforcedCorestLvl++;
+            upgrade.reinforcedCorsetLvl++;
+            Debug.Log($"corset power {upgrade.reinforcedCorset}");
+            Debug.Log($"corset cost {upgrade.reinforcedCorsetCost}");
+            Debug.Log($"corset level {upgrade.reinforcedCorsetLvl}");
         }
     } //lose less momentum from enemies' hits
     public void UpgradeWiderDress() { 
@@ -128,14 +131,14 @@ public class UpgradeManager : MonoBehaviour {
             case 1:
                 Debug.Log("ID has worked");
                 StarLvlUpdate(cannon.cannonLevel);
-                cost.text = "" + cannon.cannonCost;
+                cost.text = "$" + cannon.cannonCost;
                 nextPower.text = "+ " + 5;
                 power.text = "" + cannon.cannonPower;
                 ImageChange();
                 break;
 
             case 2:
-                StarLvlUpdate(upgrade.reinforcedCorestLvl);
+                StarLvlUpdate(upgrade.reinforcedCorsetLvl);
                 cost.text = "$" + upgrade.reinforcedCorsetCost;
                 nextPower.text = "+ " + 5;
                 power.text = "" + upgrade.reinforcedCorset;
@@ -199,7 +202,6 @@ public class UpgradeManager : MonoBehaviour {
                 power.text = "" + upgrade.scorpionTraps;
                 break;
         }
-        Debug.Log("ID number = " + id);
     }
     public int StarLvlUpdate(int value) {
         for (int i = 0; i < stars.Length; i++) {

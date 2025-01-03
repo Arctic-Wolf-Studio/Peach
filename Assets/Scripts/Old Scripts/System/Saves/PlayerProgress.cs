@@ -110,7 +110,7 @@ public class PlayerProgress {
         betterGunpowderLvl = variables.upgrade.betterGunpowderLvl;
         lightSilksLvl = variables.upgrade.lighterSilksLvl;
         packedPowderLvl = variables.upgrade.powderPackingLvl;
-        reinforcedCorsetLvl = variables.upgrade.reinforcedCorestLvl;
+        reinforcedCorsetLvl = variables.upgrade.reinforcedCorsetLvl;
         rubbloomersLvl = variables.upgrade.rubbloomersLvl;
         scorpionTrapsLvl = variables.upgrade.scorpionTrapsLvl;
         widerDressLvl = variables.upgrade.widerDressLvl;

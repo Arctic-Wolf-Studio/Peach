@@ -138,7 +138,7 @@ public class SystemUpdate : MonoBehaviour {
         upgrade.armsSnugglingLvl = variables.armsSnugglingLvl;
         upgrade.artisanRoundsLvl = variables.artisanRoundsLvl;
         upgrade.shotPracticeLvl = variables.shotPracticeLvl;
-        upgrade.reinforcedCorestLvl = variables.reinforcedCorsetLvl;
+        upgrade.reinforcedCorsetLvl = variables.reinforcedCorsetLvl;
         upgrade.betterGunpowderLvl = variables.betterGunpowderLvl;
         upgrade.lighterSilksLvl = variables.lightSilksLvl;
         upgrade.powderPackingLvl = variables.packedPowderLvl;

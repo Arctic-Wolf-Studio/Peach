@@ -1,44 +1,47 @@
 using UnityEngine;
 [System.Serializable]
-public class UpgradeObject {
-   
-    public float armsSnuggling { get; set; }
-    public int armsSnugglingCost { get; set; }
-    public int armsSnugglingLvl { get; set; }
- 
-    public float artisanSlugs { get; set; }
-    public int artisanRoundsCost { get; set; }
-    public int artisanRoundsLvl { get; set; }
 
-    public float betterGunpowder { get; set; }
-    public int betterGunpowderCost { get; set; }
-    public int betterGunpowderLvl { get; set; }
+[CreateAssetMenu(menuName = "Upgrades", fileName = "New Upgrade Save Data")]
+public class UpgradeObject : ScriptableObject {
 
-    public float lighterSilks { get; set; }
-    public int lighterSilksCost { get; set; }
-    public int lighterSilksLvl { get; set; }
+    public float armsSnuggling;
+    public int armsSnugglingCost;
+    public int armsSnugglingLvl;
 
-    public int powderPackingCost { get; set; }
-    public int powderPackingLvl { get; set; }
+    public float artisanSlugs;
+    public int artisanRoundsCost;
+    public int artisanRoundsLvl;
 
-    public float reinforcedCorset { get; set; }
-    public float reinforcedCorsetPower { get; set; }
-    public int reinforcedCorsetCost { get; set; }
-    public int reinforcedCorestLvl { get; set; }
+    public float betterGunpowder;
+    public int betterGunpowderCost;
+    public int betterGunpowderLvl;
 
-    public float rubBloomers { get; set; }
-    public int rubbloomersCost { get; set; }
-    public int rubbloomersLvl { get; set; }
+    public float lighterSilks;
+    public int lighterSilksCost;
+    public int lighterSilksLvl;
 
-    public float scorpionTraps { get; set; }
-    public int scorpionTrapsCost { get; set; }
-    public int scorpionTrapsLvl { get; set; }
+    public float powderPacking;
+    public int powderPackingCost;
+    public int powderPackingLvl;
 
-    public float shotPractice { get; set; }
-    public int shotPracticeCost { get; set; }
-    public int shotPracticeLvl { get; set; }
+    public float reinforcedCorset;
+    public float reinforcedCorsetPower;
+    public int reinforcedCorsetCost;
+    public int reinforcedCorsetLvl;
 
-    public float widerDress { get; set; }
-    public int widerDressCost { get; set; }
-    public int widerDressLvl { get; set; }
+    public float rubBloomers;
+    public int rubbloomersCost;
+    public int rubbloomersLvl;
+
+    public float scorpionTraps;
+    public int scorpionTrapsCost;
+    public int scorpionTrapsLvl;
+
+    public float shotPractice;
+    public int shotPracticeCost;
+    public int shotPracticeLvl;
+
+    public float widerDress;
+    public int widerDressCost;
+    public int widerDressLvl;
 }
