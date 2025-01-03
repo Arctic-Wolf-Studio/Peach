@@ -787,27 +787,6 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 3113, y: 4}
     spritePosition: {x: 189, y: 1050}
-  - name: Layer8
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 2060
-      y: 4
-      width: 471
-      height: 748
-    spriteID: 4c7518065c92728488c3eff889d642db
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 2060, y: 4}
-    spritePosition: {x: 186, y: 557}
   - name: BG-02(4)
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -899,8 +878,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 2328
-      y: 842
+      x: 2334
+      y: 645
       width: 191
       height: 108
     spriteID: b43e2f0e1701130498ee099f8a7b9a6d
@@ -911,7 +890,175 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 2328, y: 842}
+    uvTransform: {x: 2334, y: 645}
+    spritePosition: {x: 0, y: 0}
+  - name: CasualUI2_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2392
+      y: 447
+      width: 140
+      height: 130
+    spriteID: 4306913667e719240a70e5ca1dafb3c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2392, y: 447}
+    spritePosition: {x: 0, y: 0}
+  - name: CasualUI2_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2281
+      y: 477
+      width: 75
+      height: 75
+    spriteID: 6a0396cc490dde744af0827854b88c6a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2281, y: 477}
+    spritePosition: {x: 0, y: 0}
+  - name: CasualUI2_2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2057
+      y: 361
+      width: 75
+      height: 80
+    spriteID: 5324339eff5f3df44a6c620ae9996d25
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2057, y: 361}
+    spritePosition: {x: 0, y: 0}
+  - name: CasualUI2_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2185
+      y: 359
+      width: 91
+      height: 104
+    spriteID: cadfd93600facd84c85252475da2363f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2185, y: 359}
+    spritePosition: {x: 0, y: 0}
+  - name: CasualUI2_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2097
+      y: 197
+      width: 56
+      height: 109
+    spriteID: 06972881ff975ae43a2bc94342a4d9be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2097, y: 197}
+    spritePosition: {x: 0, y: 0}
+  - name: CasualUI2_5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2194
+      y: 197
+      width: 67
+      height: 117
+    spriteID: 8783b75646ef4614bb891106fbde23c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2194, y: 197}
+    spritePosition: {x: 0, y: 0}
+  - name: CasualUI2_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2293
+      y: 237
+      width: 104
+      height: 50
+    spriteID: 0df7fa553798c3042bb38a9e2970d7ae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2293, y: 237}
+    spritePosition: {x: 0, y: 0}
+  - name: CasualUI2_7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2186
+      y: 3
+      width: 164
+      height: 150
+    spriteID: b2a38900115a73146a124bbe7c4abcc6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 2186, y: 3}
     spritePosition: {x: 0, y: 0}
   characterData:
     bones: []

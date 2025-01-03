@@ -101,7 +101,7 @@ public class WeaponFire : MonoBehaviour {
         shotMovement?.Invoke(shootForce, upwardForce);
 
         //Spread (not implemented)
-        float x = UnityEngine.Random.Range(-spread, spread);
+
         float y = UnityEngine.Random.Range(-spread, spread);
 
 
@@ -109,7 +109,7 @@ public class WeaponFire : MonoBehaviour {
             Instantiate(muzzleFlash, barrel.position, barrel.rotation);
         }*/
 
-        Vector2 shootDirection = transform.forward;
+        Vector2 shootDirection = transform.forward + new Vector3(0, y, 0);
         shootDirection.Normalize();
 
         GameObject bullet = Instantiate(projectile, barrel.position, barrel.rotation);
