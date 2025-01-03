@@ -21,11 +21,13 @@ ScriptedImporter:
     convertToNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
     isReadable: 0
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
-    ignoreMasterTextureLimit: 0
+    ignoreMipmapLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -88,7 +90,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
@@ -100,8 +101,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 547
-      y: 1634
+      x: 454
+      y: 1502
       width: 49
       height: 166
     spriteID: 3c49b803d880c3141bf0c3889ecfab2e
@@ -579,8 +580,7 @@ ScriptedImporter:
     - {x: 38, y: 12}
     - {x: 39, y: 3}
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 547, y: 1634}
+    uvTransform: {x: 454, y: 1502}
     spritePosition: {x: 255, y: 217}
   - name: Layer9
     originalName: 
@@ -589,7 +589,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
+      x: 454
       y: 4
       width: 487
       height: 831
@@ -601,9 +601,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 4}
-    spritePosition: {x: -12, y: 0}
+    uvTransform: {x: 418, y: 4}
+    spritePosition: {x: 36, y: 0}
   - name: Layer6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -611,8 +610,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 547
-      y: 4
+      x: 4
+      y: 983
       width: 361
       height: 963
     spriteID: f6486f864d2036c43a6637356640e8a0
@@ -623,8 +622,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 547, y: 4}
+    uvTransform: {x: 4, y: 983}
     spritePosition: {x: 67, y: 0}
   - name: Layer10
     originalName: 
@@ -633,8 +631,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 547
-      y: 975
+      x: 454
+      y: 843
       width: 137
       height: 651
     spriteID: 0080137a1705ac44a92ad4a62628e2f2
@@ -645,8 +643,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 547, y: 975}
+    uvTransform: {x: 454, y: 843}
     spritePosition: {x: 180, y: 186}
   - name: Layer14
     originalName: 
@@ -656,7 +653,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 843
+      y: 4
       width: 442
       height: 971
     spriteID: 930139b83e047fa469b3cf7993bece46
@@ -667,8 +664,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 4, y: 843}
+    uvTransform: {x: 4, y: 4}
     spritePosition: {x: 0, y: 0}
   characterData:
     bones:
@@ -756,6 +752,7 @@ ScriptedImporter:
       order: 0
     dimension: {x: 0, y: 0}
     characterGroups: []
+    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   sharedRigSpriteImportData: []
   sharedRigCharacterData:
@@ -763,10 +760,12 @@ ScriptedImporter:
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
+    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
+    ignorePlatformSupport: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -778,6 +777,7 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   - name: Standalone
     overridden: 0
+    ignorePlatformSupport: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -789,6 +789,7 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   - name: Lumin
     overridden: 0
+    ignorePlatformSupport: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -800,6 +801,7 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   - name: Server
     overridden: 0
+    ignorePlatformSupport: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -811,6 +813,7 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   - name: Android
     overridden: 0
+    ignorePlatformSupport: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -822,6 +825,7 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   - name: iPhone
     overridden: 0
+    ignorePlatformSupport: 0
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -841,6 +845,10 @@ ScriptedImporter:
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  padding: 4
+  spriteSizeExpand: 0
   spriteCategoryList:
     categories: []
   spritePackingTag: 
@@ -853,7 +861,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 3c49b803d880c3141bf0c3889ecfab2e
     layerID: 79
-    mosaicPosition: {x: 547, y: 1634}
+    mosaicPosition: {x: 454, y: 1502}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -863,7 +871,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 5b6a9f9bcba98cf4aa2bfdc40499e1dc
     layerID: 78
-    mosaicPosition: {x: 4, y: 4}
+    mosaicPosition: {x: 454, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -873,7 +881,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: f6486f864d2036c43a6637356640e8a0
     layerID: 77
-    mosaicPosition: {x: 547, y: 4}
+    mosaicPosition: {x: 4, y: 983}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -883,7 +891,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 0080137a1705ac44a92ad4a62628e2f2
     layerID: 76
-    mosaicPosition: {x: 547, y: 975}
+    mosaicPosition: {x: 454, y: 843}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -893,12 +901,15 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 930139b83e047fa469b3cf7993bece46
     layerID: 75
-    mosaicPosition: {x: 4, y: 843}
+    mosaicPosition: {x: 4, y: 4}
     flatten: 0
     isImported: 1
     isVisible: 1
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: Tower Texture
   prefabAssetName: Tower Prefab

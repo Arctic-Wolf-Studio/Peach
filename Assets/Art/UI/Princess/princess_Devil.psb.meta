@@ -21,11 +21,13 @@ ScriptedImporter:
     convertToNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
     isReadable: 0
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
-    ignoreMasterTextureLimit: 0
+    ignoreMipmapLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -88,7 +90,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
     spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
@@ -112,9 +113,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 333, y: 259}
-    spritePosition: {x: 553, y: 484}
+    spritePosition: {x: 553, y: 486}
   - name: face-1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +134,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 236, y: 735}
     spritePosition: {x: 598, y: 508}
   - name: head
@@ -156,7 +155,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 531, y: 455}
     spritePosition: {x: 597, y: 500}
   - name: la-2
@@ -178,7 +176,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 229, y: 310}
     spritePosition: {x: 662, y: 288}
   - name: la-3
@@ -200,7 +197,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 676, y: 4}
     spritePosition: {x: 619, y: 165}
   - name: lh-1
@@ -222,7 +218,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 474, y: 793}
     spritePosition: {x: 610, y: 109}
   - name: chest
@@ -244,7 +239,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 4, y: 310}
     spritePosition: {x: 516, y: 307}
   - name: skirt
@@ -266,9 +260,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 3, y: -15}
-    spritePosition: {x: 285, y: 95}
+    spritePosition: {x: 286, y: 114}
   - name: ll-1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -288,9 +281,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 4, y: 565}
-    spritePosition: {x: 347, y: 210}
+    spritePosition: {x: 347, y: 211}
   - name: ll-2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -310,9 +302,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 332, y: 454}
-    spritePosition: {x: 207, y: 88}
+    spritePosition: {x: 208, y: 89}
   - name: ll-3(2)
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -332,9 +323,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 525, y: 261}
-    spritePosition: {x: 130, y: 33}
+    spritePosition: {x: 131, y: 33}
   - name: rl-1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -354,9 +344,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 4, y: 734}
-    spritePosition: {x: 336, y: 243}
+    spritePosition: {x: 336, y: 244}
   - name: rl-2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -376,9 +365,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 332, y: 623}
-    spritePosition: {x: 196, y: 121}
+    spritePosition: {x: 197, y: 122}
   - name: ll-3(3)
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -398,9 +386,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 332, y: 793}
-    spritePosition: {x: 115, y: 59}
+    spritePosition: {x: 116, y: 59}
   - name: skirt back
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -420,9 +407,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 333, y: 3}
-    spritePosition: {x: 264, y: 154}
+    spritePosition: {x: 264, y: 155}
   - name: lh-1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -442,9 +428,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 332, y: 910}
-    spritePosition: {x: 507, y: 148}
+    spritePosition: {x: 508, y: 148}
   - name: ra-2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -464,7 +449,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 235, y: 566}
     spritePosition: {x: 568, y: 330}
   - name: ra-3
@@ -486,7 +470,6 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    parentGroupIndex: -1
     uvTransform: {x: 531, y: 624}
     spritePosition: {x: 525, y: 205}
   characterData:
@@ -494,6 +477,7 @@ ScriptedImporter:
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
+    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   sharedRigSpriteImportData: []
   sharedRigCharacterData:
@@ -501,6 +485,7 @@ ScriptedImporter:
     parts: []
     dimension: {x: 0, y: 0}
     characterGroups: []
+    pivot: {x: 0, y: 0}
     boneReadOnly: 0
   platformSettings: []
   mosaicLayers: 1
@@ -513,6 +498,10 @@ ScriptedImporter:
   paperDollMode: 0
   keepDupilcateSpriteName: 1
   skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  padding: 4
+  spriteSizeExpand: 0
   spriteCategoryList:
     categories: []
   spritePackingTag: 
@@ -951,6 +940,9 @@ ScriptedImporter:
     isVisible: 0
   sharedRigPSDLayers: []
   pSDLayerImportSetting: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
   generateGOHierarchy: 0
   textureAssetName: 
   prefabAssetName: 
