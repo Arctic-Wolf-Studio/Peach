@@ -18,6 +18,12 @@ public class UpgradeManager : MonoBehaviour {
     public TextMeshProUGUI power;
     public TextMeshProUGUI coinDisplay;
 
+    private void Start() {
+        cannon = Resources.Load<CannonObject>("Cannon");
+        princess = Resources.Load<PrincessObject>("Princess");
+        upgrade = Resources.Load<UpgradeObject>("Princess Upgrades");
+    }
+
     private void Update() {
         ChooseUpgrade();
         coinDisplay.text = "" + princess.coins; 

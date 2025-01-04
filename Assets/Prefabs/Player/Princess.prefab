@@ -108,7 +108,6 @@ GameObject:
   m_Component:
   - component: {fileID: 348082228707746146}
   - component: {fileID: 6751717297272067517}
-  - component: {fileID: 8353695701195299105}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Weapon
@@ -170,27 +169,6 @@ MonoBehaviour:
   barrel: {fileID: 8092643191906880489}
   projectile: {fileID: 5446903189629935520, guid: 6eaeab2320198024b8c8e171648286ff, type: 3}
   allowInvoke: 1
---- !u!114 &8353695701195299105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8400591922501727494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96abba97d2921d943ba56a78cf351455, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barrel: {fileID: 0}
-  projectile: {fileID: 0}
-  ammo: 0
-  fireRate: 0
-  magazine: 0
-  reload: 0
-  speed: 0
-  punch: 0
-  nextShot: 0
 --- !u!1 &9018356621655864927
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,7 +377,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6385532679130328527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c651822eb84ae62458e27874f93ff67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
   update: {fileID: 0}
   crosshair: {fileID: 0}
   ground:

@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b9439a3da7a0f14486d2400ac9bd992, type: 3}
-  m_Name: princess
+  m_Script: {fileID: 11500000, guid: 2a00f0e391121fd4b916ab2db3f565a2, type: 3}
+  m_Name: Cannon
   m_EditorClassIdentifier: 
-  coins: 1000000
-  crowns: 0
-  score: 0
-  distance: 0
-  currentWeapon: 2
-  currentDress: 1
+  jumpForce: 0
+  cannonPower: 0
+  nextCannonPower: 0
+  cannonLevel: 0
+  cannonCost: 0

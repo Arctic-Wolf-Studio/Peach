@@ -2,62 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WandRandom : MonoBehaviour {
+public class WandRandom : WeaponFire {
 
-    public int damage;
-    public float shootForce;
-
-    public float fireRate, range, reloadTime, timeBetweeenShots;
-    public int magazineSize;
-
-    public int bulletsLeft, bulletsShot;
-
-    bool shooting, readyToShoot, reloading;
+    public float reloadTime;
 
     public int ammoIndex;
 
-    public float offset;
     private float rotZ;
     Vector3 difference;
 
     public GameObject[] wandProjectiles;
-    public Transform barrel;
 
-    public bool allowInvoke = true;
-
-    private void Awake() {
-        bulletsLeft = magazineSize;
-        readyToShoot = true;
+    protected override void Start() {
+        base.Start();
+        int ammoIndex = UnityEngine.Random.Range(0, manager.wand.Length);
+        projectile = manager.wand[ammoIndex];
     }
 
-    void FixedUpdate() {
-        Cursor();
+    protected override void Update() {
+        base.Update();
     }
 
-    void Update() {
-        Fire();
-    }
-
-    public void Fire() {
-        shooting = Input.GetKeyDown(KeyCode.Mouse0);
-
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0) {
-            bulletsShot = 0;
-            SpawnObjects();
-        }
-    }
-
-    public void Cursor() {
-        difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-        difference.Normalize();
+    protected override void Fire() {
+        base.Fire();
     }
 
 
-    public void SpawnObjects() {
+    protected override void Shoot() {
 
         readyToShoot = false;
+
+        shotMovement?.Invoke(shootForce, upwardForce);
 
         float Distance = difference.magnitude;
         Vector2 Direction = difference / Distance;
@@ -70,7 +45,7 @@ public class WandRandom : MonoBehaviour {
         bullet.GetComponent<Rigidbody2D>().velocity = Direction * shootForce;
 
         bulletsLeft--;
-        bulletsShot++;
+        bulletsShot--;
 
         if (allowInvoke) {
             Invoke("ResetShot", fireRate);
@@ -78,17 +53,19 @@ public class WandRandom : MonoBehaviour {
         }
     }
 
-    private void ResetShot() {
-        readyToShoot = true;
-        allowInvoke = true;
-    }
-    private void Reload() {
-        reloading = true;
-        Invoke("ReloadFinished", reloadTime);
-    }
-    private void ReloadFinished() {
-        bulletsLeft = magazineSize;
-        reloading = false;
+    protected override void ResetShot() {
+        base.ResetShot();
     }
 
+    protected override void Reload() {
+        base.Reload();
+    }
+
+    protected override void ReloadFinished() {
+        base.ReloadFinished();
+    }
+
+    public override void LostAmmo() {
+        base.LostAmmo();
+    }
 }

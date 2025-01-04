@@ -24,13 +24,12 @@ public class SystemUpdate : MonoBehaviour {
     public Image backgroundImage;
     public string[] tips;
 
-    float loadTime;
-    bool isDone;
-
     private void Awake() {
-        upgrade = new UpgradeObject();
-        princess = new PrincessObject();
-        cannon = new CannonObject();
+
+        cannon = Resources.Load<CannonObject>("Cannon");
+        princess = Resources.Load<PrincessObject>("Princess");
+        upgrade = Resources.Load<UpgradeObject>("Princess Upgrades");
+
         SaveSystem.SavePlayer(this);
         SaveSystem.LoadPlayer();
     }

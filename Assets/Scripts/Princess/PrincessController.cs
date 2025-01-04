@@ -11,7 +11,7 @@ public class PrincessController : MonoBehaviour {
     public static Action EnterGroundCollision;
     public static Action EnterIdleCollision;
 
-    public PrincessStats stats;
+    private PrincessObject stats;
     public PrincessUpdate update;
 
     public Transform crosshair; 
@@ -39,8 +39,9 @@ public class PrincessController : MonoBehaviour {
     }
 
     private void Start() {
+        stats = Resources.Load<PrincessObject>("Princess");
+
         rb = GetComponent<Rigidbody2D>();
-        stats = GetComponent<PrincessStats>();
         update = GetComponent<PrincessUpdate>();
         crosshair = GameObject.FindGameObjectWithTag("Crosshair").transform;
 
@@ -48,9 +49,10 @@ public class PrincessController : MonoBehaviour {
     }
 
     private void Update() {
-        PrincessRotation();
-        SuperHeroSlam();
-            
+        if (!Cannon.GetCannon().isActive) {
+            PrincessRotation();
+            SuperHeroSlam();
+        }          
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {

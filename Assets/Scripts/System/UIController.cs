@@ -11,6 +11,9 @@ public class UIController : MonoBehaviour {
     [SerializeField] GameObject[] windows;
     [SerializeField] GameObject[] upgrade_menus;
 
+    [Header("Upgrade Components")]
+    [SerializeField] GameObject[] selectedUpgrade;
+
     private void Awake() {
 
         if (instance == null) {
@@ -40,8 +43,10 @@ public class UIController : MonoBehaviour {
         for (int i = 0; i < upgrade_menus.Length; i++) {
             if (i == upgradeNumber) {
                 upgrade_menus[i].SetActive(!upgrade_menus[i].activeInHierarchy);
+                selectedUpgrade[i].SetActive(!selectedUpgrade[i].activeInHierarchy);
             } else {
                 upgrade_menus[i].SetActive(false);
+                selectedUpgrade[i].SetActive(false);
             }
         }
     }

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67dd02c5d384be94c83237a0d908452e, type: 3}
+  m_Name: Princess Upgrades
+  m_EditorClassIdentifier: 
+  armsSnuggling: 0
+  armsSnugglingCost: 5
+  armsSnugglingLvl: 0
+  artisanSlugs: 0
+  artisanRoundsCost: 5
+  artisanRoundsLvl: 0
+  betterGunpowder: 0
+  betterGunpowderCost: 5
+  betterGunpowderLvl: 0
+  lighterSilks: 0
+  lighterSilksCost: 5
+  lighterSilksLvl: 0
+  powderPacking: 0
+  powderPackingCost: 5
+  powderPackingLvl: 0
+  reinforcedCorset: 0
+  reinforcedCorsetPower: 0
+  reinforcedCorsetCost: 5
+  reinforcedCorsetLvl: 0
+  rubBloomers: 0
+  rubbloomersCost: 5
+  rubbloomersLvl: 0
+  scorpionTraps: 0
+  scorpionTrapsCost: 5
+  scorpionTrapsLvl: 0
+  shotPractice: 0
+  shotPracticeCost: 5
+  shotPracticeLvl: 0
+  widerDress: 0
+  widerDressCost: 5
+  widerDressLvl: 0

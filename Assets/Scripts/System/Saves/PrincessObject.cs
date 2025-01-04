@@ -1,5 +1,5 @@
 using UnityEngine;
-
+[System.Serializable]
 [CreateAssetMenu(menuName = "Princess", fileName = "New Princess Save Data", order = 0)]
 public class PrincessObject : ScriptableObject {
     public int coins;

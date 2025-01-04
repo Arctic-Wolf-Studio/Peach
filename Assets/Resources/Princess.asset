@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b9439a3da7a0f14486d2400ac9bd992, type: 3}
   m_Name: Princess
   m_EditorClassIdentifier: 
-  coins: 0
+  coins: 5000
   Crowns: 0
   Score: 0
   Distance: 0

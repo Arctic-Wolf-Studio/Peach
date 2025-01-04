@@ -22,7 +22,6 @@ public class WeaponFire : MonoBehaviour {
     public int bulletsLeft, bulletsShot;
 
     public bool shooting, readyToShoot, reloading;
-    public bool isWandOfRandom;
 
     public float offset;
     private float rotZ;
@@ -41,19 +40,15 @@ public class WeaponFire : MonoBehaviour {
         bulletsLeft = magazineSize;
         readyToShoot = true;
     }
-    void Start() {
-        if (isWandOfRandom) {
-            int ammoIndex = UnityEngine.Random.Range(0, manager.wand.Length);
-            projectile = manager.wand[ammoIndex];
-        }
+    protected virtual void Start() {
         shooting = Input.GetKey(KeyCode.Mouse0);
     }
 
-    private void Update() {
+    protected virtual void Update() {
         Fire();
     }
 
-    private void Fire() {
+    protected virtual void Fire() {
 
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyUp(KeyCode.Mouse0);
@@ -69,52 +64,20 @@ public class WeaponFire : MonoBehaviour {
             bulletsShot = bullectsPerTap;
             Shoot(); 
         }
-        if (readyToShoot && shooting && !reloading && isWandOfRandom && bulletsLeft > 0) {
-            SpawnObjects();
-        }
     }
 
-    public void SpawnObjects() {
-        readyToShoot = false;
-
-        float Distance = difference.magnitude;
-        Vector2 Direction = difference / Distance;
-        Direction.Normalize();
-
-        GameObject bullet = Instantiate(projectile, barrel.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = Direction * shootForce;
-
-        //princess.FlyAndShoot();
-
-        bulletsLeft--;
-        bulletsShot++;
-
-        if (allowInvoke) {
-            Invoke("ResetShot", fireRate);
-            allowInvoke = false;
-        }
-    }
-
-    private void Shoot() {
+    protected virtual void Shoot() {
         readyToShoot = false;
 
         shotMovement?.Invoke(shootForce, upwardForce);
 
-        //Spread (not implemented)
-
         float y = UnityEngine.Random.Range(-spread, spread);
-
-
-        /*if (!muzzleFlash.activeInHierarchy) {
-            Instantiate(muzzleFlash, barrel.position, barrel.rotation);
-        }*/
 
         Vector2 shootDirection = transform.forward + new Vector3(0, y, 0);
         shootDirection.Normalize();
 
         GameObject bullet = Instantiate(projectile, barrel.position, barrel.rotation);
         bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * shootForce;
-
 
         bulletsLeft--;
         bulletsShot--;
@@ -124,24 +87,23 @@ public class WeaponFire : MonoBehaviour {
             allowInvoke = false;
         }
 
-        if (bulletsShot > 0 && bulletsLeft > 0) {
-            Invoke("Shoot", timeBetweeenShots);
-        }
+        if (bulletsShot > 0 && bulletsLeft > 0)
+            Invoke("Shoot", timeBetweeenShots);     
     }
-    private void ResetShot() {
+    protected virtual void ResetShot() {
         readyToShoot = true;
         allowInvoke = true;
     }
-    private void Reload() {
+    protected virtual void Reload() {
         reloading = true;
         Invoke("ReloadFinished", reload);
     }
-    private void ReloadFinished() {
+    protected virtual void ReloadFinished() {
         bulletsLeft = magazineSize;
         reloading = false;
     }
 
-    public void LostAmmo() {
+    public virtual void LostAmmo() {
         bulletsLeft--;
     }
 }

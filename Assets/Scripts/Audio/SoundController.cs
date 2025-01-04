@@ -17,7 +17,7 @@ public class SoundController : MonoBehaviour {
     }
     
     private AudioSource audioSource;
-    private Dictionary<Sound, AudioClip> soundAudioClipDictionary;
+    [SerializeField] private Dictionary<Sound, AudioClip> soundAudioClipDictionary;
     private List<AudioClip> audioGameLibrary;
 
     private void Awake() {
@@ -25,7 +25,7 @@ public class SoundController : MonoBehaviour {
 
         audioSource = GetComponent<AudioSource>();
         soundAudioClipDictionary = new Dictionary<Sound, AudioClip>();
-        audioGameLibrary = new List<AudioClip>();
+        audioGameLibrary = new ();
 
         foreach (Sound sound in System.Enum.GetValues(typeof(Sound))) {
             soundAudioClipDictionary[sound] = Resources.Load<AudioClip>(sound.ToString());

@@ -3,6 +3,10 @@ using TMPro;
 
 public class Cannon : MonoBehaviour {
 
+    private static Cannon instance;
+
+    public static Cannon GetCannon() { return instance; }
+
     [SerializeField] private LayerMask cannonInteraction;
     [SerializeField] private Rigidbody2D princessRB;
     public GameObject fireCannon;
@@ -16,6 +20,7 @@ public class Cannon : MonoBehaviour {
     // Start is called before the first frame update
     void Awake()
     {
+        instance = this;
         
         fireCannon.SetActive(true);
         cannonFire = false;
