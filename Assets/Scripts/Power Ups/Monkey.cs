@@ -6,7 +6,6 @@ public class Monkey : MonoBehaviour {
     public Transform princess;
     public Rigidbody2D princessRB;
     public AIController aic;
-    public WeaponStats weapon;
     private bool active;
     private bool fireState;
     public float speed = 20;
@@ -16,7 +15,7 @@ public class Monkey : MonoBehaviour {
         princess = GameObject.FindGameObjectWithTag("Player").transform;
         princessRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         aic = GameObject.FindGameObjectWithTag("Spawn").GetComponent<AIController>();
-        weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponStats>();
+
     }
 
     private void Update() {
@@ -36,11 +35,15 @@ public class Monkey : MonoBehaviour {
     }
 
     public void Fire() {
-        if (weapon.ammo < weapon.magazine && Time.time > weapon.nextShot && LevelManager.gameOver == false) {
+        /*if (weapon.ammo < weapon.magazine && Time.time > weapon.nextShot && LevelManager.gameOver == false) {
             GameObject bullet = Instantiate(weapon.projectile, transform.position, transform.rotation);
             weapon.nextShot = Time.time + weapon.fireRate;
             weapon.ammo++;
         }
+
+        move this to an inherited Weapon from WeaponFire.
+
+        */ 
     }
 
     private IEnumerator AbilityUsed() {

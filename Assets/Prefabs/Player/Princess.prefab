@@ -164,7 +164,6 @@ MonoBehaviour:
   shooting: 0
   readyToShoot: 1
   reloading: 0
-  isWandOfRandom: 0
   offset: 0
   barrel: {fileID: 8092643191906880489}
   projectile: {fileID: 5446903189629935520, guid: 6eaeab2320198024b8c8e171648286ff, type: 3}
@@ -184,7 +183,6 @@ GameObject:
   - component: {fileID: 3105179385750153861}
   - component: {fileID: 9018356621655864921}
   - component: {fileID: 6385532679130328527}
-  - component: {fileID: 8702426476301571958}
   - component: {fileID: 9018356621655864922}
   m_Layer: 0
   m_Name: Princess
@@ -398,18 +396,6 @@ MonoBehaviour:
   groundCheck: {fileID: 8157574630989061107}
   rb: {fileID: 0}
   maxHeight: 450
---- !u!114 &8702426476301571958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9018356621655864927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84ded96f4db7cbc4f859c551f49e5a04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &9018356621655864922
 MonoBehaviour:
   m_ObjectHideFlags: 0

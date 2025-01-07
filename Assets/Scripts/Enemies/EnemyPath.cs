@@ -33,6 +33,14 @@ public class EnemyPath : MonoBehaviour {
         //testHealthManager.OnDeath += TestHealthManager_OnDeath;
     }
 
+    private void OnEnable() {
+        
+    }
+
+    private void OnDisable() {
+        
+    }
+
     void FixedUpdate() {
         if (isMonkeyPath) {
             MonkeyPath();
@@ -153,7 +161,7 @@ public class EnemyPath : MonoBehaviour {
             if (!isDead) {
                 fire.bulletsLeft += 2;
                 level.kills++;
-                level.stats.Coins += 2;
+                level.stats.coins += 2;
                 level.score += 10;
                 //princess.FlyAndShoot();
                 isDead = true;

@@ -9,6 +9,7 @@ public class WeaponFire : MonoBehaviour {
     private Cannon cannon;
     public WeaponManager manager;
     private PrincessController princess;
+    private WeaponBlueprint weapon;
 
     public static Action<float, float> shotMovement;
 
