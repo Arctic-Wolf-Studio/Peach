@@ -51,7 +51,7 @@ public class WeaponFire : MonoBehaviour {
 
     protected virtual void Fire() {
 
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
+        if (allowButtonHold) shooting = Input.GetKeyUp(KeyCode.Mouse0);
         else shooting = Input.GetKeyUp(KeyCode.Mouse0);
 
         if (bulletsLeft == 0 && !reloading) Reload();
@@ -59,7 +59,6 @@ public class WeaponFire : MonoBehaviour {
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && cannon.cannonFire) {
             bulletsShot = bullectsPerTap;
             Shoot();
-            Debug.Log("fire");
         }
         if (readyToShoot && autoFire && !allowButtonHold && cannon.cannonFire) {
             bulletsShot = bullectsPerTap;
@@ -74,7 +73,7 @@ public class WeaponFire : MonoBehaviour {
 
         float y = UnityEngine.Random.Range(-spread, spread);
 
-        Vector2 shootDirection = transform.forward + new Vector3(0, y, 0);
+        Vector2 shootDirection = -transform.right + new Vector3(0, y, 0);
         shootDirection.Normalize();
 
         GameObject bullet = Instantiate(projectile, barrel.position, barrel.rotation);
