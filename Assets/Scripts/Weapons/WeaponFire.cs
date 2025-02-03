@@ -16,7 +16,8 @@ public class WeaponFire : MonoBehaviour {
     public int damage;
     public float shootForce, upwardForce;
 
-    public float fireRate, spread, range, reload, timeBetweeenShots;
+    public float fireRate, range, reload, timeBetweeenShots;
+    [Range(-1, 1)] public float spread;
     public int magazineSize, bullectsPerTap;
     public bool allowButtonHold, autoFire, isEnemy, isDown, isForward;
 

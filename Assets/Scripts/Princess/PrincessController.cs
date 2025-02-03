@@ -89,6 +89,7 @@ public class PrincessController : MonoBehaviour {
     }
 
     public void WeaponMovement(float force, float altitude) {
+        Debug.Log("Apply Force");
         rb.AddForce(new Vector2(force, altitude), ForceMode2D.Impulse);
     }
 
