@@ -19,7 +19,6 @@ public class LevelManager : MonoBehaviour {
     //public GameObject winImage;
     //public GameObject victoryMenu;
     public GameObject _marker;
-    public GameObject defeatImage;
     public GameObject gameOverMenu;
     public GameObject infoPanel;
     public GameObject powerUPHUD;
@@ -92,12 +91,12 @@ public class LevelManager : MonoBehaviour {
     public void DistanceUpdate() {
         distance = update.transform.position.x - startPoint.position.x;
         if (distance <= 1000) {
-            distanceCounter.text = "Distance " + distance.ToString("F0") + " m";
-            distanceTraveled.text = distance.ToString("F0") + " m";
+            distanceCounter.text = $"Distance {distance.ToString("F0")} m";
+            distanceTraveled.text = $"{distance.ToString("F0")} m";
         } else {
             float kmDist = Mathf.Round(distance / 1000);
-            distanceCounter.text = "Distance " + kmDist.ToString("F0") + " km";
-            distanceTraveled.text = distance.ToString("F0") + " m";
+            distanceCounter.text = $"Distance {kmDist.ToString("F0")} km";
+            distanceTraveled.text = $"{distance.ToString("F0")} m";
         }
     }
 
@@ -110,15 +109,15 @@ public class LevelManager : MonoBehaviour {
 
     public void ScoreUpdate() {
         score = (Mathf.RoundToInt(distance) / 100) + kills;
-        scoreCounter.text = "Score " + score;
-        totalScore.text = "Score " + score;
+        scoreCounter.text = $"Score {score}";
+        totalScore.text = $"Score {score}";
     }
 
     public void ScorebearDetector() {
         scorbearDistance = update.transform.position.x - scorebear.position.x;
         scorbearY = scorebear.position.y;
         marker.position = new Vector2(marker.position.x, scorbearY);
-        markerText.text = "" + scorbearDistance.ToString("F0") + " m";
+        markerText.text = $"{scorbearDistance.ToString("F0")} m";
     }
 
     public int CooldownManager(int time) {
@@ -128,7 +127,6 @@ public class LevelManager : MonoBehaviour {
     public IEnumerator GameOver() {
         yield return new WaitForSeconds(1);
         Time.timeScale = 0f;
-        defeatImage.SetActive(true);
         gameOverMenu.SetActive(true);
         _marker.SetActive(false);
         infoPanel.SetActive(false);

@@ -15,6 +15,7 @@ TagManager:
   - Weapon Manager
   - Crosshair
   - Weapon
+  - Support Enemy
   layers:
   - Default
   - TransparentFX
