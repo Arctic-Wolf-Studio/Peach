@@ -56,14 +56,11 @@ public class PrincessController : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        Debug.Log("PrincessController: enter col");
-        //EnterGroundCollision?.Invoke();
         if (OnGround()) {
-            Debug.Log(OnGround());
-            //EnterGroundCollision?.Invoke();
+            Debug.Log("hit the ground");
             PrincessUpdate.Instance.OnGroundCollision();
         } else if (collision.gameObject.CompareTag("Enemy")) {
-            EnterAirCollision?.Invoke();
+            PrincessUpdate.Instance.OnAirCollision();
         } else {
             EnterIdleCollision?.Invoke();
         }
@@ -75,7 +72,7 @@ public class PrincessController : MonoBehaviour {
 
     private void PrincessRotation() {
 
-        mousePosition = UtilsClass.GetMouseWorldPosition();
+        mousePosition = UtilsClass.GetMouseWorld2DPosition();
 
         crosshair.position = new Vector2(mousePosition.x, mousePosition.y);
         crossHairColor = crosshair.GetComponent<SpriteRenderer>();
@@ -89,7 +86,6 @@ public class PrincessController : MonoBehaviour {
     }
 
     public void WeaponMovement(float force, float altitude) {
-        Debug.Log("Apply Force");
         rb.AddForce(new Vector2(force, altitude), ForceMode2D.Impulse);
     }
 

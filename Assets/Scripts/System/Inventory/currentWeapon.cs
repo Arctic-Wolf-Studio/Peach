@@ -40,8 +40,5 @@ public class currentWeapon : MonoBehaviour {
             //tempBandolier.transform.rotation = Quaternion.Euler(0, 90, 0);
             selectedIndex = weaponIndex;
         }
-        /*Debug.Log("Selected Index = " + selectedIndex);
-        Debug.Log("Weapon Index = "+ weaponIndex);
-        Debug.Log("Bandolier Index = " + bandolierIndex);*/
     }
 }

@@ -16,6 +16,11 @@ TagManager:
   - Crosshair
   - Weapon
   - Support Enemy
+  - LevelManager
+  - Weapon Pivot Point
+  - Bird
+  - Monkey Body
+  - Spawn
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,7 @@ public class CameraController : MonoBehaviour {
     }
 
     private void CameraFollow() {
-        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+        transform.position = target.transform.position + distance;
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, minClamp, maxClamp), transform.position.z);
     }
 }

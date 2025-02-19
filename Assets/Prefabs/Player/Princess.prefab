@@ -41,7 +41,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 5736259810512963665}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e84326c89192b9747b66a903fab4b85f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -145,13 +145,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   damage: 0
-  shootForce: 5
-  upwardForce: 2.5
+  shootForce: 15
+  upwardForce: 15
   fireRate: 1
-  spread: 0
   range: 0
   reload: 1
   timeBetweeenShots: 1
+  spread: 0
   magazineSize: 30
   bullectsPerTap: 1
   allowButtonHold: 0
@@ -307,7 +307,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 9018356621655864927}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e84326c89192b9747b66a903fab4b85f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

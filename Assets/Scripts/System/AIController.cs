@@ -31,7 +31,8 @@ public class AIController : MonoBehaviour {
     public TextMeshProUGUI cooldownText4;
     public TextMeshProUGUI cooldownText5;
     public TextMeshProUGUI cooldownText6;
-    public PrincessUpdate princess;
+    public PrincessController princess;
+    public PrincessUpdate update;
     public Bird singing;
 
     [Header("Max Enemy Types")]
@@ -68,17 +69,18 @@ public class AIController : MonoBehaviour {
     private void Start() {
         cannon = GameObject.FindGameObjectWithTag("Cannon").GetComponent<Cannon>();
         level = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        princess = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessController>();
+        update = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessUpdate>();
         princessOffSet = flyEyeSpawn.position - princess.transform.position;
     }
 
     private void Update() {
-        CooldownSketchySystem();
-        /*MoveToPrincess();
+        MoveToPrincess();
         if (maxCounter < maximumEnemies) {
             SpawnFlyEye();
             SpawnFlyingMonkey();
             SpawnThunderOoze();
-        }*/
+        }
         //Presentation, Remove after
         if (Input.GetKeyDown(KeyCode.Alpha5) == true)
             BirdSpawn();
@@ -100,40 +102,40 @@ public class AIController : MonoBehaviour {
     }
 
 
-    /*    private void MoveToPrincess() {
-            flyEyeSpawn.position = new Vector3(princess.transform.position.x + princessOffSet.x, Mathf.Clamp(flyEyeSpawn.position.y, scaleY, 100), flyEyeSpawn.position.z);
+    private void MoveToPrincess() {
+        flyEyeSpawn.position = new Vector3(princess.transform.position.x + princessOffSet.x, Mathf.Clamp(flyEyeSpawn.position.y, scaleY, 100), flyEyeSpawn.position.z);
+    }
+
+    private void SpawnFlyEye() {
+        if (cannon.cannonFire && Time.time > timer && LevelManager.gameOver == false && update.isIdle && flyEyeCounter <= maxFlyEyes) {
+            spawn = new Vector2(Random.Range(flyEyeSpawn.position.x - scaleX, flyEyeSpawn.position.x + scaleX), Random.Range(flyEyeSpawn.position.y - scaleY, flyEyeSpawn.position.y + scaleY));
+            Instantiate(flyEye, spawn, Quaternion.identity);
+
+            flyEyeCounter++;
+            maxCounter++;
+            timer = Time.time + flyEyeCooldown;
+        }
+    }
+
+    private void SpawnFlyingMonkey() {
+        if (cannon.cannonFire && Time.time > timer && LevelManager.gameOver == false && update.isIdle && flyingMonkeyCounter <= maxFlyingMonkeys) {
+            Instantiate(flyingMonkey, flyingMonkeySpawn.position, Quaternion.identity);
+            flyingMonkeyCounter++;
+            maxCounter++;
+            timer = Time.time + monkeyCooldown;
+        }
+    }
+
+    private void SpawnThunderOoze() {
+        if (cannon.cannonFire && Time.time > timer && LevelManager.gameOver == false && level.GetDistance() >= 500 && thunderOozeCounter <= maxThunderOozes) {
+            Instantiate(thunderOoze, thunderOozeSpawn.position, Quaternion.identity);
+            thunderOozeCounter++;
+            maxCounter++;
+            timer = Time.time + thunderoozeCooldown;
         }
 
-        private void SpawnFlyEye() {
-            if (cannon.cannonFire && Time.time > timer && LevelUpdate.gameOver == false && princess.isHealthy && flyEyeCounter <= maxFlyEyes) {
-                spawn = new Vector2(Random.Range(flyEyeSpawn.position.x - scaleX, flyEyeSpawn.position.x + scaleX), Random.Range(flyEyeSpawn.position.y - scaleY, flyEyeSpawn.position.y + scaleY));
-                Instantiate(flyEye, spawn, Quaternion.identity);
-
-                flyEyeCounter++;
-                maxCounter++;
-                timer = Time.time + flyEyeCooldown;
-            }
-        }
-
-        private void SpawnFlyingMonkey() {
-            if (cannon.cannonFire && Time.time > timer && LevelUpdate.gameOver == false && princess.isHealthy && flyingMonkeyCounter <= maxFlyingMonkeys) {
-                Instantiate(flyingMonkey, flyingMonkeySpawn.position, Quaternion.identity);
-                flyingMonkeyCounter++;
-                maxCounter++;
-                timer = Time.time + monkeyCooldown;
-            }
-        }
-
-        private void SpawnThunderOoze() {
-            if (cannon.cannonFire && Time.time > timer && LevelUpdate.gameOver == false && lu.GetDistance() >= 500 && thunderOozeCounter <= maxThunderOozes) {
-                Instantiate(thunderOoze, thunderOozeSpawn.position, Quaternion.identity);
-                thunderOozeCounter++;
-                maxCounter++;
-                timer = Time.time + thunderoozeCooldown;
-            }
-
-            //Debug.Log(lu.GetDistance());
-        }*/
+        //Debug.Log(lu.GetDistance());
+    }
 
     private void OnDrawGizmos() {
         Gizmos.color = Color.magenta;

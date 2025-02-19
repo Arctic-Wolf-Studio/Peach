@@ -69,7 +69,7 @@ public class WeaponFire : MonoBehaviour {
 
     protected virtual void Shoot() {
         readyToShoot = false;
-
+        //PrincessUpdate.Instance.WeaponRecoil();
         shotMovement?.Invoke(shootForce, upwardForce);
 
         float y = UnityEngine.Random.Range(-spread, spread);
@@ -77,7 +77,7 @@ public class WeaponFire : MonoBehaviour {
         Vector2 shootDirection = -transform.right + new Vector3(0, y, 0);
         shootDirection.Normalize();
 
-        GameObject bullet = Instantiate(projectile, barrel.position, barrel.rotation);
+        GameObject bullet = Instantiate(projectile, barrel.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * shootForce;
 
         bulletsLeft--;

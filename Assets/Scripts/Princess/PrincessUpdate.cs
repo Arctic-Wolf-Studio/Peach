@@ -52,17 +52,15 @@ public class PrincessUpdate : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         skeletonAnim = GetComponent<SkeletonAnimation>();
         spineAnimationState = skeletonAnim.AnimationState;
+        IdleState();
     }
 
     
 
-    void Update()
-    {
+    void Update() {
+
         if (skeletonAnim == null) return;
 
-        if (isIdle) {
-            IdleState();
-        }
         if (Input.GetKey(a)) {
             skeletonAnim.AnimationState.SetAnimation(0, recoil, false);
             skeletonAnim.Update(0);
@@ -89,6 +87,7 @@ public class PrincessUpdate : MonoBehaviour {
 
     public void OnGroundCollision() {
         spineAnimationState.SetAnimation(0, collision_ground, false);
+        ResetPrincessAnim(5f);
     }
 
     public void WeaponAim() {
@@ -97,5 +96,11 @@ public class PrincessUpdate : MonoBehaviour {
 
     public void WeaponRecoil() {
         skeletonAnim.AnimationState.SetAnimation(0, recoil, false);
+    }
+
+    public void ResetPrincessAnim(float cooldown) {
+        if (Time.time > cooldown) {
+            IdleState();
+        }
     }
 }
