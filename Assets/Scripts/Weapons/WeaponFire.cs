@@ -78,7 +78,7 @@ public class WeaponFire : MonoBehaviour {
         shootDirection.Normalize();
 
         GameObject bullet = Instantiate(projectile, barrel.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * shootForce;
+        bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * shootForce * princess.rb.velocity;
 
         bulletsLeft--;
         bulletsShot--;

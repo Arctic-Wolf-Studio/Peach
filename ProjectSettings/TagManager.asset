@@ -21,6 +21,7 @@ TagManager:
   - Bird
   - Monkey Body
   - Spawn
+  - System Update
   layers:
   - Default
   - TransparentFX

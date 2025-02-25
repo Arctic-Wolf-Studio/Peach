@@ -15,9 +15,14 @@ public class currentWeapon : MonoBehaviour {
     private int selectedIndex;
     void Awake() {
         manager = GameObject.FindGameObjectWithTag("Weapon Manager").GetComponent<WeaponManager>();
+        update = GameObject.FindGameObjectWithTag("System Update").GetComponent<SystemUpdate>();
         Debug.Log(manager);
         //GameObject weapon = manager.weapons[update.princess.currentWeapon];
         update.LoadData();
+        
+    }
+
+    private void Start() {
         SelectWeapon();
     }
 

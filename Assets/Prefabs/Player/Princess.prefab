@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4040299532812856632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5028607816317949202}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5028607816317949202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4040299532812856632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.1, y: 11.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9018356621655864926}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5736259810512963665
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,7 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 348082228707746146}
-  - component: {fileID: 6751717297272067517}
+  - component: {fileID: 7233499830717998188}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Weapon
@@ -131,7 +162,7 @@ Transform:
   - {fileID: 8092643191906880489}
   m_Father: {fileID: 9018356621655864926}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6751717297272067517
+--- !u!114 &7233499830717998188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,34 +171,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8400591922501727494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 784b262b605614640ae0b91f602f8604, type: 3}
+  m_Script: {fileID: 11500000, guid: bbe54192db23aa443bd971b02a0a0f92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  damage: 0
-  shootForce: 15
-  upwardForce: 15
-  fireRate: 1
-  range: 0
-  reload: 1
-  timeBetweeenShots: 1
-  spread: 0
-  magazineSize: 30
-  bullectsPerTap: 1
-  allowButtonHold: 0
-  autoFire: 0
-  isEnemy: 0
-  isDown: 0
-  isForward: 0
-  bulletsLeft: 0
-  bulletsShot: 0
-  shooting: 0
-  readyToShoot: 1
-  reloading: 0
-  offset: 0
-  barrel: {fileID: 8092643191906880489}
-  projectile: {fileID: 5446903189629935520, guid: 6eaeab2320198024b8c8e171648286ff, type: 3}
-  allowInvoke: 1
+  update: {fileID: 0}
+  bandolier: {fileID: 0}
+  hud: {fileID: 0}
+  weaponPosition: {fileID: 348082228707746146}
+  PrincessHands: {fileID: 5028607816317949202}
 --- !u!1 &9018356621655864927
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +217,7 @@ Transform:
   m_Children:
   - {fileID: 348082228707746146}
   - {fileID: 8157574630989061107}
+  - {fileID: 5028607816317949202}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9018356621655864923
