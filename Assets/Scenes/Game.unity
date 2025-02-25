@@ -9133,14 +9133,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 14895755}
     m_Modifications:
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: manager
-      value: 
-      objectReference: {fileID: 675005428}
-    - target: {fileID: 6751717297272067517, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7233499830717998188, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: hud
       value: 
@@ -9149,14 +9141,10 @@ PrefabInstance:
       propertyPath: bandolier
       value: 
       objectReference: {fileID: 433732439}
-    - target: {fileID: 7233499830717998188, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: PrincessHands
-      value: 
-      objectReference: {fileID: 2006378031}
-    - target: {fileID: 7233499830717998188, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
-      propertyPath: weaponPosition
-      value: 
-      objectReference: {fileID: 446011012}
+    - target: {fileID: 8400591922501727494, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9018356621655864923, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -9206,7 +9194,8 @@ PrefabInstance:
       value: Princess
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6078452241205195073, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
