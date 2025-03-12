@@ -296,10 +296,10 @@ GameObject:
   - component: {fileID: 9018356621655864923}
   - component: {fileID: 9018356621655864924}
   - component: {fileID: 9018356621655864925}
-  - component: {fileID: 3105179385750153861}
   - component: {fileID: 9018356621655864921}
   - component: {fileID: 6385532679130328527}
   - component: {fileID: 9018356621655864922}
+  - component: {fileID: 6497423602324739233}
   m_Layer: 0
   m_Name: Princess
   m_TagString: Player
@@ -416,57 +416,6 @@ MonoBehaviour:
   _animationName: Idle
   loop: 0
   timeScale: 1
---- !u!60 &3105179385750153861
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9018356621655864927}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: e84326c89192b9747b66a903fab4b85f, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 16.413622, y: 27.29929}
-      - {x: 0.59171057, y: 5.294652}
-      - {x: -21.639288, y: 10.818223}
-      - {x: -26.19064, y: -7.1242294}
-      - {x: -8.408144, y: -14.472977}
-      - {x: 15.383226, y: 9.487218}
-  m_UseDelaunayMesh: 0
 --- !u!50 &9018356621655864921
 Rigidbody2D:
   serializedVersion: 4
@@ -514,6 +463,9 @@ MonoBehaviour:
   groundCheck: {fileID: 8157574630989061107}
   rb: {fileID: 0}
   maxHeight: 450
+  rotation: 0
+  mousePosition: {x: 0, y: 0, z: 0}
+  difference: {x: 0, y: 0, z: 0}
 --- !u!114 &9018356621655864922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,3 +497,38 @@ MonoBehaviour:
   collisionGround: 0
   isIdle: 0
   isRecoil: 0
+--- !u!70 &6497423602324739233
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9018356621655864927}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -9.605782, y: 11.050394}
+  m_Size: {x: 51.604942, y: 47.98639}
+  m_Direction: 1

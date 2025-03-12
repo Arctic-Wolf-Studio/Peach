@@ -3272,7 +3272,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &753182141
@@ -3303,7 +3303,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   princess: {fileID: 1032317903}
-  target: {fileID: 1032317897}
   minClamp: 18
   maxClamp: 500
 --- !u!1 &767582337
@@ -5626,8 +5625,8 @@ RectTransform:
   - {fileID: 1923794995}
   - {fileID: 42302307}
   - {fileID: 551012337}
-  - {fileID: 302799466}
   - {fileID: 1185695590}
+  - {fileID: 302799466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9133,6 +9132,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 14895755}
     m_Modifications:
+    - target: {fileID: 6385532679130328527, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1185695589}
     - target: {fileID: 7233499830717998188, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: hud
       value: 

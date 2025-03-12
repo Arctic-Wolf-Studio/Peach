@@ -14,7 +14,7 @@ public class PrincessController : MonoBehaviour {
     private PrincessObject stats;
     public PrincessUpdate update;
 
-    public Transform crosshair; 
+    public GameObject crosshair; 
     SpriteRenderer crossHairColor;
 
     [SerializeField] private LayerMask ground;
@@ -22,9 +22,9 @@ public class PrincessController : MonoBehaviour {
     public Rigidbody2D rb;
 
     [SerializeField] float maxHeight;
-    float rotation;
+    public float rotation;
 
-    Vector3 mousePosition, difference;
+    public Vector3 mousePosition, worldPosition, difference;
 
     private void OnEnable() {
         WeaponFire.shotMovement += WeaponMovement;
@@ -43,16 +43,20 @@ public class PrincessController : MonoBehaviour {
 
         rb = GetComponent<Rigidbody2D>();
         update = GetComponent<PrincessUpdate>();
-        crosshair = GameObject.FindGameObjectWithTag("Crosshair").transform;
-
+        crossHairColor = GameObject.FindGameObjectWithTag("Crosshair").GetComponent<SpriteRenderer>();
         Cursor.visible = false;
     }
 
     private void Update() {
-        if (!Cannon.GetCannon().isActive) {
+        if (Cannon.GetCannon().cannonFire) {
             PrincessRotation();
-            SuperHeroSlam();
         }          
+    }
+
+    private void FixedUpdate() {
+        if (!Cannon.GetCannon().isActive) {
+            SuperHeroSlam();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -72,13 +76,15 @@ public class PrincessController : MonoBehaviour {
 
     private void PrincessRotation() {
 
-        mousePosition = UtilsClass.GetMouseWorld2DPosition();
+        mousePosition = Input.mousePosition;
+        mousePosition.z = Camera.main.nearClipPlane;
+        worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        crosshair.position = new Vector2(mousePosition.x, mousePosition.y);
-        crossHairColor = crosshair.GetComponent<SpriteRenderer>();
+        crosshair.transform.position = new Vector2(worldPosition.x, worldPosition.y);
+        Cursor.visible = false;
         crossHairColor.color = Color.red;
 
-        difference = transform.position - crosshair.position;
+        difference = transform.position - crosshair.transform.position;
         difference.Normalize();
 
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;

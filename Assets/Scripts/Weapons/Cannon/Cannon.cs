@@ -45,7 +45,7 @@ public class Cannon : MonoBehaviour {
         }
     }
 
-    private bool IsUI() {
+    public bool IsUI() {
         return Physics2D.OverlapBox(transform.position, buttonBoxSize, cannonInteraction);
     }
 

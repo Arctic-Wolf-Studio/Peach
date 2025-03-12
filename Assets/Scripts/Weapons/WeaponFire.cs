@@ -47,6 +47,9 @@ public class WeaponFire : MonoBehaviour {
     }
 
     protected virtual void Update() {
+        if (Cannon.GetCannon().IsUI()) {
+            return;
+        }
         Fire();
     }
 
@@ -74,11 +77,12 @@ public class WeaponFire : MonoBehaviour {
 
         float y = UnityEngine.Random.Range(-spread, spread);
 
-        Vector2 shootDirection = -transform.right + new Vector3(0, y, 0);
+        float Distance = princess.difference.magnitude;
+        Vector2 shootDirection = princess.difference / Distance;
         shootDirection.Normalize();
 
-        GameObject bullet = Instantiate(projectile, barrel.position, barrel.rotation);
-        bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * shootForce * princess.rb.velocity;
+        GameObject bullet = Instantiate(projectile, barrel.position, Quaternion.Euler(0,0,princess.rotation));
+        bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * -shootForce * princess.rb.velocity;
 
         bulletsLeft--;
         bulletsShot--;

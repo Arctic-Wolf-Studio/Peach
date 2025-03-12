@@ -10,7 +10,7 @@ public static class UtilsClass {
         if (mainCamera == null) mainCamera = Camera.main;
 
         Vector3 mouseWorldPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mouseWorldPosition.z = 0f;
+        mouseWorldPosition.z = mainCamera.nearClipPlane;
         return mouseWorldPosition;
     }
 
@@ -18,7 +18,6 @@ public static class UtilsClass {
         if (mainCamera == null) mainCamera = Camera.main;
 
         Vector2 mouseWorld2DPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        
         return mouseWorld2DPosition;
     }
 }
