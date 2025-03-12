@@ -21,10 +21,11 @@ public class PrincessController : MonoBehaviour {
     [SerializeField] public Transform groundCheck;
     public Rigidbody2D rb;
 
+    [SerializeField] float rotationSpeed;
     [SerializeField] float maxHeight;
     public float rotation;
 
-    public Vector3 mousePosition, worldPosition, difference;
+    [HideInInspector] public Vector3 mousePosition, worldPosition, difference;
 
     private void OnEnable() {
         WeaponFire.shotMovement += WeaponMovement;
@@ -47,7 +48,7 @@ public class PrincessController : MonoBehaviour {
         Cursor.visible = false;
     }
 
-    private void Update() {
+    private void LateUpdate() {
         if (Cannon.GetCannon().cannonFire) {
             PrincessRotation();
         }          
@@ -76,11 +77,9 @@ public class PrincessController : MonoBehaviour {
 
     private void PrincessRotation() {
 
-        mousePosition = Input.mousePosition;
-        mousePosition.z = 10f;
-        worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mousePosition = UtilsClass.GetMouseWorldPosition();
 
-        crosshair.transform.position = new Vector2(worldPosition.x, worldPosition.y);
+        crosshair.transform.position = new Vector2(mousePosition.x, mousePosition.y);
         Cursor.visible = false;
         crossHairColor.color = Color.red;
 
@@ -88,7 +87,8 @@ public class PrincessController : MonoBehaviour {
         difference.Normalize();
 
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, rotation);
+        float smoothRotate = Mathf.LerpAngle(transform.eulerAngles.z, rotation, Time.deltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Euler(0, 0, smoothRotate);
     }
 
     public void WeaponMovement(float force, float altitude) {

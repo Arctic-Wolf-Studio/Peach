@@ -9136,6 +9136,10 @@ PrefabInstance:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 1185695589}
+    - target: {fileID: 6385532679130328527, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
+      propertyPath: rotationSpeed
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 7233499830717998188, guid: 7ad12f0cb46a7d7428ff70dc7af7a799, type: 3}
       propertyPath: hud
       value: 
