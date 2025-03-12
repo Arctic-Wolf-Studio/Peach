@@ -49,14 +49,15 @@ public class LevelManager : MonoBehaviour {
     private void Awake() {
         stats = Resources.Load<PrincessObject>("Princess");
         princess = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessController>();
-        update = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessUpdate>();
+        update = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessUpdate>();       
     }
 
     private void Start() {
-        
+
         Weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponFire>();
         gameOver = false;
         victory = false;
+        startPoint.position = princess.transform.position;
     }
 
     private void Update() {

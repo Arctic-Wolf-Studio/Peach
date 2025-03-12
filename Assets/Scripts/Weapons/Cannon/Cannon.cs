@@ -62,7 +62,6 @@ public class Cannon : MonoBehaviour {
     }
 
     private void OnDrawGizmos() {
-
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, new Vector3(buttonBoxSize.x, buttonBoxSize.y, 0f));
     }

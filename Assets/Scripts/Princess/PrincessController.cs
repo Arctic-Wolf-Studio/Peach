@@ -77,7 +77,7 @@ public class PrincessController : MonoBehaviour {
     private void PrincessRotation() {
 
         mousePosition = Input.mousePosition;
-        mousePosition.z = Camera.main.nearClipPlane;
+        mousePosition.z = 10f;
         worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         crosshair.transform.position = new Vector2(worldPosition.x, worldPosition.y);
