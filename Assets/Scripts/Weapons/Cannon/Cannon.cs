@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class Cannon : MonoBehaviour {
 
@@ -8,7 +7,7 @@ public class Cannon : MonoBehaviour {
     public static Cannon GetCannon() { return instance; }
 
     [SerializeField] private LayerMask cannonInteraction;
-    [SerializeField] private Rigidbody2D princessRB;
+    [SerializeField] private Rigidbody2D rb;
     public GameObject fireCannon;
 
     public Vector2 buttonBoxSize;
@@ -17,7 +16,6 @@ public class Cannon : MonoBehaviour {
 
     public float cannonPower, jumpForce;
 
-    // Start is called before the first frame update
     void Awake()
     {
         instance = this;
@@ -28,16 +26,15 @@ public class Cannon : MonoBehaviour {
     }
 
     private void Start() {
-        princessRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        princessRB.gravityScale = 0;
+        rb = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !cannonFire && isActive && !IsUI()) {
+        if (Input.GetKey(KeyCode.Mouse0) && !cannonFire && isActive && !IsUI()) {
             cannonFire = true;
         }
     }
-
 
     void FixedUpdate() {
         if (cannonFire && isActive) {
@@ -51,13 +48,14 @@ public class Cannon : MonoBehaviour {
 
     public void FireCannon() {
         if (IsUI()) {
-            princessRB.WakeUp();
-            princessRB.gravityScale = 1;
-            princessRB.AddForce(new Vector2(cannonPower, jumpForce), ForceMode2D.Impulse);
+            rb.WakeUp();
+            rb.gravityScale = 1;
+            rb.AddForce(new Vector2(cannonPower, jumpForce), ForceMode2D.Impulse);
 
             cannonFire = true;
             isActive = false;
             fireCannon.SetActive(false);
+            IsUI();
         } 
     }
 

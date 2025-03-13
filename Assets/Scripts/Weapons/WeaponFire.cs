@@ -43,11 +43,11 @@ public class WeaponFire : MonoBehaviour {
         readyToShoot = true;
     }
     protected virtual void Start() {
-        shooting = Input.GetKey(KeyCode.Mouse0);
+        shooting = Input.GetKeyUp(KeyCode.Mouse0);
     }
 
     protected virtual void Update() {
-        if (Cannon.GetCannon().IsUI()) {
+        if (!Cannon.GetCannon().cannonFire) {
             return;
         }
         Fire();
@@ -71,8 +71,8 @@ public class WeaponFire : MonoBehaviour {
     }
 
     protected virtual void Shoot() {
+        Debug.Log("bullet fired");
         readyToShoot = false;
-        //PrincessUpdate.Instance.WeaponRecoil();
         shotMovement?.Invoke(shootForce, upwardForce);
 
         float y = UnityEngine.Random.Range(-spread, spread);

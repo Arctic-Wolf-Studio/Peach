@@ -30,6 +30,8 @@ public class FlyEye_OLD : MonoBehaviour {
         p_controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessController>();
         p_update = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessUpdate>();
         //flapping = GetComponent<Animator>();
+
+        
     }
 
     private void FixedUpdate() {
@@ -37,7 +39,7 @@ public class FlyEye_OLD : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Projectile") == true) {
+        if (collision.gameObject.CompareTag("Projectile")) {
             flyEyeRB.GetComponent<Rigidbody2D>().AddForce(Vector2.left * 10, ForceMode2D.Impulse);
             
 
@@ -63,7 +65,7 @@ public class FlyEye_OLD : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
-            Controller.princess.GetComponent<Rigidbody2D>().AddForce(Vector2.down, ForceMode2D.Impulse);
+            PrincessController.GetPrincessController().GetComponent<Rigidbody2D>().AddForce(Vector2.down, ForceMode2D.Impulse);
 
             Controller.counter--;
             Destroy(gameObject);
@@ -71,8 +73,11 @@ public class FlyEye_OLD : MonoBehaviour {
     }
 
     private void FollowPrincess() {
+
+        Vector3 princessTransform = PrincessController.GetPrincessController().transform.position;
+
         flyEyeRB.velocity = Vector2.ClampMagnitude(flyEyeRB.velocity, 100);
-        distance = Controller.princess.transform.position.x - transform.position.x;
+        distance = princessTransform.x - transform.position.x;
 
         //Fly Eye will always follow the Princess no matter where she is until she starts losing momentum and has no ammo left.
         if (LevelManager.victory == false && LevelManager.gameOver == false && isDead != true) {
@@ -84,19 +89,19 @@ public class FlyEye_OLD : MonoBehaviour {
                 } else {
                     isDetected = true;
                     if (!p_update.collisionAir || !p_update.collisionGround)
-                        flyEyeRB.position = Vector2.MoveTowards(flyEyeRB.position, Controller.princess.transform.position, Time.deltaTime * (p_controller.rb.velocity.magnitude + speed));
+                        flyEyeRB.position = Vector2.MoveTowards(flyEyeRB.position, princessTransform, Time.deltaTime * (p_controller.rb.velocity.magnitude + speed));
                     else
-                        flyEyeRB.position = Vector2.MoveTowards(flyEyeRB.position, Controller.princess.transform.position, Time.deltaTime * p_controller.rb.velocity.magnitude);
+                        flyEyeRB.position = Vector2.MoveTowards(flyEyeRB.position, princessTransform, Time.deltaTime * p_controller.rb.velocity.magnitude);
 
                     if (p_controller.rb.velocity.magnitude == 0)
                         flyEyeRB.velocity = Vector2.zero;
                 }
 
                 if (isDetected)
-                    transform.right = Controller.princess.transform.position - transform.position;
+                    transform.right = princessTransform - transform.position;
             } else {
                 flyEyeRB.velocity = Vector2.zero;
-                flyEyeRB.position = Vector2.MoveTowards(flyEyeRB.position, Controller.princess.transform.position, Time.deltaTime * p_controller.rb.velocity.magnitude);
+                flyEyeRB.position = Vector2.MoveTowards(flyEyeRB.position, princessTransform, Time.deltaTime * p_controller.rb.velocity.magnitude);
             }
         } else if (isDead) {
             //Sprite change to dead

@@ -78,11 +78,11 @@ public class AIController : MonoBehaviour {
         MoveToPrincess();
         if (maxCounter < maximumEnemies) {
             SpawnFlyEye();
-            SpawnFlyingMonkey();
-            SpawnThunderOoze();
+            //SpawnFlyingMonkey();
+            //SpawnThunderOoze();
         }
         //Presentation, Remove after
-        if (Input.GetKeyDown(KeyCode.Alpha5) == true)
+/*        if (Input.GetKeyDown(KeyCode.Alpha5) == true)
             BirdSpawn();
 
         if (Input.GetKeyDown(KeyCode.Alpha1) == true)
@@ -99,6 +99,8 @@ public class AIController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Alpha2) == true)
             TurtleSpawn();
+
+        *//*Instantiate(flyEye, flyEyeSpawn.position, Quaternion.identity);*/
     }
 
 
@@ -109,7 +111,7 @@ public class AIController : MonoBehaviour {
     private void SpawnFlyEye() {
         if (cannon.cannonFire && Time.time > timer && LevelManager.gameOver == false && update.isIdle && flyEyeCounter <= maxFlyEyes) {
             spawn = new Vector2(Random.Range(flyEyeSpawn.position.x - scaleX, flyEyeSpawn.position.x + scaleX), Random.Range(flyEyeSpawn.position.y - scaleY, flyEyeSpawn.position.y + scaleY));
-            Instantiate(flyEye, spawn, Quaternion.identity);
+            Instantiate(flyEye, flyEyeSpawn.position, Quaternion.identity);
 
             flyEyeCounter++;
             maxCounter++;
@@ -133,8 +135,6 @@ public class AIController : MonoBehaviour {
             maxCounter++;
             timer = Time.time + thunderoozeCooldown;
         }
-
-        //Debug.Log(lu.GetDistance());
     }
 
     private void OnDrawGizmos() {

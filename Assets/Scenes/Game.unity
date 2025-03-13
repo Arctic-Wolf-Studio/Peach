@@ -558,7 +558,7 @@ Transform:
   m_GameObject: {fileID: 48791951}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -417, y: 63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2121,7 +2121,7 @@ Transform:
   m_GameObject: {fileID: 465217215}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -212.7, y: 81, z: 0}
+  m_LocalPosition: {x: -218.8, y: 63.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   cannonInteraction:
     serializedVersion: 2
     m_Bits: 32
-  princessRB: {fileID: 0}
+  rb: {fileID: 0}
   fireCannon: {fileID: 1592690868}
   buttonBoxSize: {x: 100, y: 100}
   cannonFire: 0
@@ -3121,7 +3121,7 @@ GameObject:
   - component: {fileID: 736558364}
   m_Layer: 0
   m_Name: AI Controller
-  m_TagString: Untagged
+  m_TagString: Spawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3163,7 +3163,7 @@ MonoBehaviour:
   squirrel: {fileID: 2512982550999243459, guid: e0627cd7505d0e447ade9490a8b47195, type: 3}
   turtle: {fileID: 3664104942418332998, guid: f5a22732c4eca504f84d2ba327d62ddb, type: 3}
   cooldownTime: 10
-  nextActivation: 0
+  nextActivation: 1
   flyEyeSpawn: {fileID: 2085280472}
   flyingMonkeySpawn: {fileID: 767582338}
   thunderOozeSpawn: {fileID: 0}
@@ -3178,7 +3178,7 @@ MonoBehaviour:
   singing: {fileID: 0}
   maximumEnemies: 10
   maxFlyEyes: 5
-  flyEyeCounter: 0
+  flyEyeCounter: 1
   maxFlyingMonkeys: 3
   flyingMonkeyCounter: 0
   maxThunderOozes: 1
@@ -3187,8 +3187,8 @@ MonoBehaviour:
   flyEyeCooldown: 1
   monkeyCooldown: 0
   thunderoozeCooldown: 0
-  scaleX: 0
-  scaleY: 0
+  scaleX: 1
+  scaleY: 1
   cooldownBird: 10
   cooldownCat: 10
   cooldownChameleon: 10
@@ -4415,6 +4415,7 @@ Transform:
   - {fileID: 1332064961}
   - {fileID: 833130910}
   - {fileID: 465217216}
+  - {fileID: 1171527764}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1032317897 stripped
@@ -4482,7 +4483,7 @@ MonoBehaviour:
   update: {fileID: 0}
   Weapon: {fileID: 0}
   marker: {fileID: 551012337}
-  startPoint: {fileID: 465217216}
+  startPoint: {fileID: 1171527764}
   scorebear: {fileID: 558788513}
   _marker: {fileID: 551012336}
   gameOverMenu: {fileID: 1261288060}
@@ -4602,7 +4603,7 @@ Transform:
   m_GameObject: {fileID: 1063135862}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.13820313, w: 0.9904039}
-  m_LocalPosition: {x: -6.044, y: -17.045, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4770,7 +4771,7 @@ Transform:
   m_GameObject: {fileID: 1158299564}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.186, y: -15.07, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4828,6 +4829,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1171527763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1171527764}
+  m_Layer: 0
+  m_Name: Start Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1171527764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171527763}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -218.8, y: 63.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1024822024}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1185695589
 GameObject:
   m_ObjectHideFlags: 0
