@@ -6,11 +6,16 @@ using TMPro;
 
 public class LevelManager : MonoBehaviour {
 
+    private static LevelManager instance;
+
+    public static LevelManager GetLevelManager() { return instance; }
+
     [Header("Componenets")]
     public PrincessController princess;
     public PrincessObject stats;
     public PrincessUpdate update;
-    public WeaponFire Weapon;
+    public ScorBear scorBear;
+    public WeaponFire weapon;
 
     [Header("UI")]
     public RectTransform marker;
@@ -35,18 +40,22 @@ public class LevelManager : MonoBehaviour {
     public string musicFile;
     [SerializeField] private float fileVolume;
 
-    
+    [Header("Scorbear Variables")]
     private float scorbearDistance;
     private float scorbearY;
+
+    [Header("Player Level Stats")]
     public float distance;
     public int score;
     public int kills;
 
     [Header("End Game Conditions")]
-    public static bool gameOver;
-    public static bool victory;
+    [SerializeField] public bool gameOver;
+    [SerializeField] public bool victory;
 
     private void Awake() {
+        instance = this;
+
         stats = Resources.Load<PrincessObject>("Princess");
         princess = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessController>();
         update = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessUpdate>();       
@@ -54,7 +63,8 @@ public class LevelManager : MonoBehaviour {
 
     private void Start() {
 
-        Weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponFire>();
+        weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponFire>();
+        scorBear = ScorBear.GetScorBear();
         gameOver = false;
         victory = false;
         startPoint.position = princess.transform.position;
@@ -67,7 +77,7 @@ public class LevelManager : MonoBehaviour {
         ScoreUpdate();
 
         //&& Weapon.magazine == 0
-        if (update.collision_ground && Weapon.bulletsLeft == 0 && princess.rb.velocity.magnitude <= 5 && !gameOver) {
+        if (update.collision_ground && weapon.bulletsLeft == 0 && princess.rb.velocity.magnitude <= 5 && !gameOver) {
             StartCoroutine(GameOver());
             gameOver = true;
             Debug.Log("game over" + gameOver);
@@ -115,8 +125,8 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void ScorebearDetector() {
-        scorbearDistance = update.transform.position.x - scorebear.position.x;
-        scorbearY = scorebear.position.y;
+        scorbearDistance = update.transform.position.x - scorBear.transform.position.x;
+        scorbearY = scorBear.transform.position.y;
         marker.position = new Vector2(marker.position.x, scorbearY);
         markerText.text = $"{scorbearDistance.ToString("F0")} m";
     }
@@ -128,6 +138,7 @@ public class LevelManager : MonoBehaviour {
     public IEnumerator GameOver() {
         yield return new WaitForSeconds(1);
         Time.timeScale = 0f;
+        princess.GetComponentInChildren<WeaponFire>().enabled = false;
         gameOverMenu.SetActive(true);
         _marker.SetActive(false);
         infoPanel.SetActive(false);

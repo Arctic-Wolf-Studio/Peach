@@ -7,15 +7,17 @@ public class PrincessController : MonoBehaviour {
 
     public static PrincessController GetPrincessController() { return instance; }
 
-    public static Action EnterAirCollision;
-    public static Action EnterGroundCollision;
-    public static Action EnterIdleCollision;
+    public static Action<bool> EnterAirCollision;
+    public static Action<bool> EnterGroundCollision;
+    public static Action<bool> EnterIdleCollision;
 
-    private PrincessObject stats;
-    public PrincessUpdate update;
+    [SerializeField] private PrincessObject stats;
+    [SerializeField] public PrincessUpdate update;
+    [SerializeField] private WeaponFire weapon; 
 
     public GameObject crosshair; 
     SpriteRenderer crossHairColor;
+    [SerializeField] Transform weaponPivotPoint;
 
     [SerializeField] private LayerMask ground;
     [SerializeField] public Transform groundCheck;
@@ -45,6 +47,8 @@ public class PrincessController : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         update = GetComponent<PrincessUpdate>();
         crossHairColor = GameObject.FindGameObjectWithTag("Crosshair").GetComponent<SpriteRenderer>();
+        weapon = GetComponentInChildren<WeaponFire>();
+        weaponPivotPoint = GameObject.FindGameObjectWithTag("Weapon Pivot Point").GetComponent<Transform>();
         Cursor.visible = false;
     }
 
@@ -63,11 +67,12 @@ public class PrincessController : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision) {
         if (OnGround()) {
             Debug.Log("hit the ground");
-            PrincessUpdate.Instance.OnGroundCollision();
+            EnterGroundCollision?.Invoke(update.collisionGround);
+            weapon.bulletsLeft--;
         } else if (collision.gameObject.CompareTag("Enemy")) {
-            PrincessUpdate.Instance.OnAirCollision();
+            EnterAirCollision?.Invoke(update.collisionAir);
         } else {
-            EnterIdleCollision?.Invoke();
+            EnterIdleCollision?.Invoke(true);
         }
     }
 
@@ -83,7 +88,7 @@ public class PrincessController : MonoBehaviour {
         Cursor.visible = false;
         crossHairColor.color = Color.red;
 
-        difference = transform.position - crosshair.transform.position;
+        difference = weaponPivotPoint.position - crosshair.transform.position;
         difference.Normalize();
 
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;

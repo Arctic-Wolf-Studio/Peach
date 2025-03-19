@@ -31,7 +31,7 @@ public class Cannon : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetKey(KeyCode.Mouse0) && !cannonFire && isActive && !IsUI()) {
+        if (Input.GetKey(KeyCode.Mouse0) && !cannonFire && isActive && IsUI()) {
             cannonFire = true;
         }
     }

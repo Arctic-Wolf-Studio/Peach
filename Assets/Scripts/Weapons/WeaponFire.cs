@@ -47,7 +47,7 @@ public class WeaponFire : MonoBehaviour {
     }
 
     protected virtual void Update() {
-        if (!Cannon.GetCannon().cannonFire) {
+        if (!Cannon.GetCannon().cannonFire && Cannon.GetCannon().IsUI()) {
             return;
         }
         Fire();
@@ -58,13 +58,13 @@ public class WeaponFire : MonoBehaviour {
         if (allowButtonHold) shooting = Input.GetKeyUp(KeyCode.Mouse0);
         else shooting = Input.GetKeyUp(KeyCode.Mouse0);
 
-        if (bulletsLeft == 0 && !reloading) Reload();
+        //if (bulletsLeft == 0 && !reloading) Reload();
 
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && cannon.cannonFire) {
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0) {
             bulletsShot = bullectsPerTap;
             Shoot();
         }
-        if (readyToShoot && autoFire && !allowButtonHold && cannon.cannonFire) {
+        if (readyToShoot && autoFire && !allowButtonHold) {
             bulletsShot = bullectsPerTap;
             Shoot(); 
         }

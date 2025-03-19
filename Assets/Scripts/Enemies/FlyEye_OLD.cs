@@ -1,9 +1,9 @@
 using UnityEngine;
 
 public class FlyEye_OLD : MonoBehaviour {
-    private AIController Controller;
-    private WeaponFire Weapon;
-    private LevelManager levelManager;
+    [SerializeField] private AIController Controller;
+    [SerializeField] private WeaponFire Weapon;
+    [SerializeField] private LevelManager levelManager;
     //public UpgradeObject upgrade;
 
     private PrincessController p_controller;
@@ -24,14 +24,12 @@ public class FlyEye_OLD : MonoBehaviour {
     private void Start() {
         flyEyeRB = GetComponent<Rigidbody2D>();
 
-        Controller = GameObject.FindGameObjectWithTag("Spawn").GetComponent<AIController>();
+        Controller = AIController.GetAIController();
         Weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponFire>();
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        levelManager = LevelManager.GetLevelManager();
         p_controller = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessController>();
         p_update = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessUpdate>();
-        //flapping = GetComponent<Animator>();
-
-        
+        //flapping = GetComponent<Animator>();  
     }
 
     private void FixedUpdate() {
@@ -80,7 +78,7 @@ public class FlyEye_OLD : MonoBehaviour {
         distance = princessTransform.x - transform.position.x;
 
         //Fly Eye will always follow the Princess no matter where she is until she starts losing momentum and has no ammo left.
-        if (LevelManager.victory == false && LevelManager.gameOver == false && isDead != true) {
+        if (!LevelManager.GetLevelManager().victory && !LevelManager.GetLevelManager().gameOver && !isDead) {
             if (isStunned == false && isGrabbed == false) {
                 if (distance > 45) {
                     transform.Translate(acceleration * Time.deltaTime * Vector2.right);

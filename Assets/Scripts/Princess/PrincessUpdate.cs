@@ -1,6 +1,7 @@
 using Spine;
 using Spine.Unity;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PrincessUpdate : MonoBehaviour {
@@ -32,6 +33,8 @@ public class PrincessUpdate : MonoBehaviour {
 
     public bool isAim, isBlink, collisionAir, collisionGround, isIdle, isRecoil;
 
+    [SerializeField] private float animCooldown;
+
     private void Awake() {
             Instance = this;
     }
@@ -52,7 +55,8 @@ public class PrincessUpdate : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         skeletonAnim = GetComponent<SkeletonAnimation>();
         spineAnimationState = skeletonAnim.AnimationState;
-        IdleState();
+        isIdle = true;
+        IdleState(isIdle);
     }
 
     
@@ -61,46 +65,57 @@ public class PrincessUpdate : MonoBehaviour {
 
         if (skeletonAnim == null) return;
 
-        if (Input.GetKey(a)) {
-            skeletonAnim.AnimationState.SetAnimation(0, recoil, false);
-            skeletonAnim.Update(0);
-        }
-        if (Input.GetKey(s)) {
-            skeletonAnim.AnimationState.SetAnimation(0, collision_ground, false);
-            skeletonAnim.Update(0);
-        }
-        if (Input.GetKey(d)) {
-            skeletonAnim.AnimationState.SetAnimation(0, blink, false);
-            skeletonAnim.Update(0);
-        }
+        /*        if (Input.GetKey(a)) {
+                    skeletonAnim.AnimationState.SetAnimation(0, recoil, false);
+                    skeletonAnim.Update(0);
+                }
+                if (Input.GetKey(s)) {
+                    skeletonAnim.AnimationState.SetAnimation(0, collision_ground, false);
+                    skeletonAnim.Update(0);
+                }
+                if (Input.GetKey(d)) {
+                    skeletonAnim.AnimationState.SetAnimation(0, blink, false);
+                    skeletonAnim.Update(0);
+                }*/
+        if (isIdle) IdleState(isIdle);
+        if (collisionAir) OnAirCollision(collisionAir);
+        if (collisionGround) OnGroundCollision(collisionGround); 
     }
 
-    public void IdleState() {
+    public void IdleState(bool state) {
         spineAnimationState.SetAnimation(0, idle, false);
         skeletonAnim.Update(0);
         isIdle = false;
     }
 
-    public void OnAirCollision() {
+    public void OnAirCollision(bool state) {
         skeletonAnim.AnimationState.SetAnimation(0, collision_air, false);
+        skeletonAnim.Update(0);
+        collisionAir = false;
+        StartCoroutine(ResetPrincessAnim());
     }
 
-    public void OnGroundCollision() {
+    public void OnGroundCollision(bool state) {
         spineAnimationState.SetAnimation(0, collision_ground, false);
-        ResetPrincessAnim(5f);
+        skeletonAnim.Update(0);
+        collisionGround = false;
+        StartCoroutine(ResetPrincessAnim());
     }
 
     public void WeaponAim() {
         skeletonAnim.AnimationState.SetAnimation(0, aim, false);
+        StartCoroutine(ResetPrincessAnim());
     }
 
     public void WeaponRecoil() {
         skeletonAnim.AnimationState.SetAnimation(0, recoil, false);
+        StartCoroutine(ResetPrincessAnim());
     }
 
-    public void ResetPrincessAnim(float cooldown) {
-        if (Time.time > cooldown) {
-            IdleState();
-        }
+    public IEnumerator ResetPrincessAnim() {
+
+        yield return new WaitForSeconds(animCooldown);
+
+        IdleState(isIdle);
     }
 }

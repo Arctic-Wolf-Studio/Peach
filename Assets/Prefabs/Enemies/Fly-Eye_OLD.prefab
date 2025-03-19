@@ -110,9 +110,9 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 2
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &2173065818616452656
 CircleCollider2D:
@@ -148,7 +148,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.23, y: -0.2}
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 2
 --- !u!114 &4835568757855692913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,9 +161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2550f5db249533244a22b5dc180e6a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Controller: {fileID: 0}
+  Weapon: {fileID: 0}
+  levelManager: {fileID: 0}
   flyEyeRB: {fileID: 0}
   speed: 10
-  acceleration: 3
+  acceleration: 50
   isDead: 0
   isStunned: 0
   isGrabbed: 0
