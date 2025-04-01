@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class GameState : MonoBehaviour {
 
     public LevelManager level;
-    private WeaponFire weapon;
     public PrincessObject princess;
     public static bool GameIsPaused = false;
     public GameObject Pause_Menu;
@@ -22,8 +21,7 @@ public class GameState : MonoBehaviour {
 
     private void Start()
     {
-        level = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        weapon = GameObject.FindGameObjectWithTag("Weapon").GetComponent<WeaponFire>();
+        level = LevelManager.GetLevelManager();
     }
 
     void Update() {

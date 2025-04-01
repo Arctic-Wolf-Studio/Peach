@@ -6,7 +6,7 @@ public class Cat : MonoBehaviour {
     private bool active;
     private float cooldown = 5;
     private float duration = 5;
-    private int speed = 10;
+    private int speed = 10, acceleration = 10;
 
     public Transform princess;
     public Rigidbody2D rb;
@@ -22,11 +22,12 @@ public class Cat : MonoBehaviour {
     }
 
     public void OnUse() {
-        if (active != true) {
+        if (!active) {
             active = true;
             StartCoroutine(AbilityUsed());
         }
-        transform.position = Vector2.MoveTowards(transform.position, princess.transform.position, Time.deltaTime * (speed + rb.velocity.magnitude));
+        StartCoroutine(FlyToPrincess());
+
     }
 
     private IEnumerator AbilityUsed() {
@@ -38,7 +39,15 @@ public class Cat : MonoBehaviour {
         rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         yield return new WaitForSeconds(duration);
         rb.constraints = RigidbodyConstraints2D.None;
+        transform.parent = null;
         yield return new WaitForSeconds(cooldown);
         Destroy(gameObject);
+    }
+
+    private IEnumerator FlyToPrincess() {
+        transform.position = Vector2.Lerp(transform.position, princess.transform.position, Time.deltaTime * (speed * acceleration));
+        yield return new WaitForSeconds(1);
+        transform.position = princess.position;
+        transform.parent = princess;
     }
 }

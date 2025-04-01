@@ -82,6 +82,10 @@ public class LevelManager : MonoBehaviour {
             gameOver = true;
             Debug.Log("game over" + gameOver);
         }
+        if (gameOver) {
+            StartCoroutine(GameOver());
+            gameOver = false;
+        }
 
         
     }
@@ -125,8 +129,8 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void ScorebearDetector() {
-        scorbearDistance = update.transform.position.x - scorBear.transform.position.x;
-        scorbearY = scorBear.transform.position.y;
+        scorbearDistance = update.transform.position.x - ScorBear.GetScorBear().transform.position.x;
+        scorbearY = ScorBear.GetScorBear().transform.position.y;
         marker.position = new Vector2(marker.position.x, scorbearY);
         markerText.text = $"{scorbearDistance.ToString("F0")} m";
     }
@@ -136,7 +140,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public IEnumerator GameOver() {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2f);
         Time.timeScale = 0f;
         princess.GetComponentInChildren<WeaponFire>().enabled = false;
         gameOverMenu.SetActive(true);

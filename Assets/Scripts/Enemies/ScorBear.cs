@@ -45,19 +45,21 @@ public class ScorBear : MonoBehaviour {
         if (toCapture) CapturePrincess();
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        toMove = false;
-        toCapture = true;
+    private void OnTriggerEnter2D(Collider2D other) {    
+
+        if (other.CompareTag("Player")) {
+            toMove = false;
+            toCapture = true;
+        }
     }
 
-    private void CapturePrincess() {   
-
+    private void CapturePrincess() {
+        StartCoroutine(level.GameOver());
+        princess.position = scorTail.position;
+        princessRB.constraints = RigidbodyConstraints2D.FreezePositionY;
+        princess.GetComponent<CapsuleCollider2D>().enabled = false;
         sprite.flipX = true;
         transform.position = Vector2.MoveTowards(transform.position, level.startPoint.position, Time.deltaTime * captureSpeed);
-        princess.position = Vector2.MoveTowards(princess.position, scorTail.position, Time.deltaTime * captureSpeed);
-        princessRB.constraints = RigidbodyConstraints2D.FreezePositionY;
-        level.gameOver = true;
-
     }
 
     private void MoveTowardPrincess() {

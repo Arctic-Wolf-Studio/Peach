@@ -41,7 +41,7 @@ public class currentWeapon : MonoBehaviour {
             GameObject tempWeapon = manager.weapons[weaponIndex];
             GameObject tempBandolier = manager.bandolier[bandolierIndex];
             Instantiate(tempWeapon, weaponPosition.position, Quaternion.identity, PrincessHands);
-            Instantiate(tempBandolier, bandolier.position, tempBandolier.transform.rotation, hud);
+            Instantiate(tempBandolier, bandolier.position, tempBandolier.transform.rotation, bandolier);
             //tempBandolier.transform.rotation = Quaternion.Euler(0, 90, 0);
             selectedIndex = weaponIndex;
         }

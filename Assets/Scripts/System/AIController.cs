@@ -88,7 +88,7 @@ public class AIController : MonoBehaviour {
     private void Update() {
         MoveToPrincess();
         if (counter < maximumEnemies) {
-            SpawnFlyEye();
+            //SpawnFlyEye();
             //SpawnFlyingMonkey();
             //SpawnThunderOoze();
         }
