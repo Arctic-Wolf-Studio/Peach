@@ -8,7 +8,8 @@ public class CameraController : MonoBehaviour {
 
     private Vector3 distance;
 
-    private void Start() { 
+    private void Start() {
+        princess = PrincessController.GetPrincessController();
         distance = transform.position - princess.transform.position;
     }
 

@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class WeaponFire : MonoBehaviour {
 
+    public static Action<float, float> shotMovement;
+    public static Action<Vector2> OnMovement;
+
     [Header("Components")]
     private Cannon cannon;
     public WeaponManager manager;
     private PrincessController princess;
     private WeaponBlueprint weapon;
 
-    public static Action<float, float> shotMovement;
+    public Transform weaponPivotPoint;
 
     public int damage;
     public float shootForce, upwardForce;
@@ -27,6 +30,7 @@ public class WeaponFire : MonoBehaviour {
 
     public float offset;
     private float rotZ;
+    [HideInInspector] public Vector2 movemewnt;
     Vector3 difference;
 
     public Transform barrel;
@@ -36,11 +40,13 @@ public class WeaponFire : MonoBehaviour {
     public bool allowInvoke = true;
 
     private void Awake() {
-        cannon = GameObject.FindGameObjectWithTag("Cannon").GetComponent<Cannon>();
-        manager = GameObject.FindGameObjectWithTag("Weapon Manager").GetComponent<WeaponManager>();
-        princess = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessController>();
+        cannon = Cannon.GetCannon();
+        manager = WeaponManager.GetWeaponManager();
+        princess = PrincessController.GetPrincessController();
+        weaponPivotPoint = GameObject.FindGameObjectWithTag("Weapon Pivot Point").GetComponent<Transform>();
         bulletsLeft = magazineSize;
-        readyToShoot = true;
+        movemewnt = new Vector2(shootForce, upwardForce);
+        readyToShoot = false;
     }
     protected virtual void Start() {
         shooting = Input.GetKeyUp(KeyCode.Mouse0);
@@ -54,6 +60,8 @@ public class WeaponFire : MonoBehaviour {
     }
 
     protected virtual void Fire() {
+
+        readyToShoot = true;
 
         if (allowButtonHold) shooting = Input.GetKeyUp(KeyCode.Mouse0);
         else shooting = Input.GetKeyUp(KeyCode.Mouse0);
@@ -71,9 +79,10 @@ public class WeaponFire : MonoBehaviour {
     }
 
     protected virtual void Shoot() {
-        Debug.Log("bullet fired");
+
         readyToShoot = false;
         shotMovement?.Invoke(shootForce, upwardForce);
+        OnMovement?.Invoke(movemewnt);
 
         float y = UnityEngine.Random.Range(-spread, spread);
 

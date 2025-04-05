@@ -2,15 +2,30 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour {
 
-    [SerializeField] private Transform floor;
-    [SerializeField] private float nextPosition;
-    private Vector3 target;
+    private PrincessController princess;
+    
+    [SerializeField] private Renderer bg;
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player")) { 
-            target = new Vector3(floor.position.x + nextPosition, floor.position.y, floor.position.z);
+    [SerializeField] private Vector2 speed;
 
-            floor.position = target;
+    [SerializeField] private float distanceSpeed;
+
+    private void Start() {
+        princess = PrincessController.GetPrincessController();
+    }
+
+    private void Update() {
+        speed = princess.rb.velocity;
+        if (speed.x > 0f) {
+            MoveBackground();
         }
+        
+    }
+
+    private void MoveBackground() {
+
+        float movement = speed.x * distanceSpeed;
+
+        bg.material.mainTextureOffset += new Vector2(movement * Time.deltaTime, 0f);
     }
 }

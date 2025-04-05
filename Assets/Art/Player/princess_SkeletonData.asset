@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b3b4b945939a54ea0b23d3396115fb, type: 3}
   m_Name: princess_SkeletonData
   m_EditorClassIdentifier: 
-  atlasAssets:
-  - {fileID: 11400000, guid: 2854250f9bc293046a6fb46c4991e66b, type: 2}
-  scale: 0.1
+  atlasAssets: []
+  scale: 0.01
   skeletonJSON: {fileID: 4900000, guid: 28034fd9541d70e4698f4a57d9841a5b, type: 3}
   isUpgradingBlendModeMaterials: 0
   blendModeMaterials:
@@ -24,20 +23,8 @@ MonoBehaviour:
     multiplyMaterials: []
     screenMaterials: []
   skeletonDataModifiers: []
-  fromAnimation:
-  - Idle
-  - collision-ground
-  - Idle
-  - collision-air
-  toAnimation:
-  - collision-ground
-  - Idle
-  - collision-air
-  - Idle
-  duration:
-  - 0.2
-  - 0.1
-  - 0.1
-  - 0.1
-  defaultMix: 0.2
-  controller: {fileID: 9100000, guid: 5df1091d71dcf63499681a8a5a70b6bd, type: 2}
+  fromAnimation: []
+  toAnimation: []
+  duration: []
+  defaultMix: 0
+  controller: {fileID: 0}

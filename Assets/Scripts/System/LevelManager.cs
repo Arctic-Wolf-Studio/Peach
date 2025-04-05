@@ -4,16 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// 
+/// The Princess needs to be implemented back into to the game. Bailey needs to update the princess spine from 4.1.23 to 4.2.
+/// Therefore PrincessUpdate that controls the Spine logic is removed for now.
+/// 
+/// </summary>
+
 public class LevelManager : MonoBehaviour {
 
     private static LevelManager instance;
-
     public static LevelManager GetLevelManager() { return instance; }
 
     [Header("Componenets")]
     public PrincessController princess;
     public PrincessObject stats;
-    public PrincessUpdate update;
+    //public PrincessUpdate update;
     public ScorBear scorBear;
     public WeaponFire weapon;
 
@@ -57,8 +63,8 @@ public class LevelManager : MonoBehaviour {
         instance = this;
 
         stats = Resources.Load<PrincessObject>("Princess");
-        princess = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessController>();
-        update = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessUpdate>();       
+        princess = PrincessController.GetPrincessController();
+        //update = GameObject.FindGameObjectWithTag("Player").GetComponent<PrincessUpdate>();       
     }
 
     private void Start() {
@@ -77,17 +83,15 @@ public class LevelManager : MonoBehaviour {
         ScoreUpdate();
 
         //&& Weapon.magazine == 0
-        if (update.collision_ground && weapon.bulletsLeft == 0 && princess.rb.velocity.magnitude <= 5 && !gameOver) {
+        /*if (update.collision_ground && weapon.bulletsLeft == 0 && princess.rb.velocity.magnitude <= 5 && !gameOver) { //implement after Bailey has completed the princess.
             StartCoroutine(GameOver());
             gameOver = true;
             Debug.Log("game over" + gameOver);
-        }
+        }*/
         if (gameOver) {
             StartCoroutine(GameOver());
             gameOver = false;
-        }
-
-        
+        }    
     }
 
     /* Victory State of the game
@@ -104,7 +108,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void DistanceUpdate() {
-        distance = update.transform.position.x - startPoint.position.x;
+        distance = princess.transform.position.x - startPoint.position.x;
         if (distance <= 1000) {
             distanceCounter.text = $"Distance {distance.ToString("F0")} m";
             distanceTraveled.text = $"{distance.ToString("F0")} m";
@@ -116,7 +120,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public int GetDistance() {
-        distance = update.transform.position.x - startPoint.position.x;
+        distance = princess.transform.position.x - startPoint.position.x;
         int totalDistance = Mathf.RoundToInt(distance);
 
         return totalDistance;
@@ -129,7 +133,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     public void ScorebearDetector() {
-        scorbearDistance = update.transform.position.x - ScorBear.GetScorBear().transform.position.x;
+        scorbearDistance = princess.transform.position.x - ScorBear.GetScorBear().transform.position.x;
         scorbearY = ScorBear.GetScorBear().transform.position.y;
         marker.position = new Vector2(marker.position.x, scorbearY);
         markerText.text = $"{scorbearDistance.ToString("F0")} m";
@@ -142,13 +146,12 @@ public class LevelManager : MonoBehaviour {
     public IEnumerator GameOver() {
         yield return new WaitForSeconds(2f);
         Time.timeScale = 0f;
+        Cursor.visible = true;
         princess.GetComponentInChildren<WeaponFire>().enabled = false;
         gameOverMenu.SetActive(true);
         _marker.SetActive(false);
         infoPanel.SetActive(false);
         powerUPHUD.SetActive(false);
-        Cursor.visible = true;
-
     }
 
     /* Victory state of the game

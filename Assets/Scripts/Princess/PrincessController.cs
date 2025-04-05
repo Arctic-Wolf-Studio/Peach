@@ -4,7 +4,6 @@ using UnityEngine;
 public class PrincessController : MonoBehaviour {
 
     private static PrincessController instance;
-
     public static PrincessController GetPrincessController() { return instance; }
 
     public static Action<bool> EnterAirCollision;
@@ -17,7 +16,7 @@ public class PrincessController : MonoBehaviour {
 
     public GameObject crosshair; 
     SpriteRenderer crossHairColor;
-    [SerializeField] Transform weaponPivotPoint;
+    [SerializeField] Transform weaponPivot;
 
     [SerializeField] private LayerMask ground;
     [SerializeField] public Transform groundCheck;
@@ -28,6 +27,8 @@ public class PrincessController : MonoBehaviour {
     public float rotation;
 
     [HideInInspector] public Vector3 mousePosition, worldPosition, difference;
+
+    [SerializeField] private bool testMovement;
 
     private void OnEnable() {
         WeaponFire.shotMovement += WeaponMovement;
@@ -48,8 +49,16 @@ public class PrincessController : MonoBehaviour {
         update = GetComponent<PrincessUpdate>();
         crossHairColor = GameObject.FindGameObjectWithTag("Crosshair").GetComponent<SpriteRenderer>();
         weapon = GetComponentInChildren<WeaponFire>();
-        weaponPivotPoint = GameObject.FindGameObjectWithTag("Weapon Pivot Point").GetComponent<Transform>();
+        weaponPivot = weapon.weaponPivotPoint;
         Cursor.visible = false;
+    }
+
+    private void Update() {
+
+        if (Cannon.GetCannon().cannonFire && testMovement) {
+            transform.position += Vector3.right;
+            rb.gravityScale = 0f;
+        }
     }
 
     private void LateUpdate() {
@@ -88,7 +97,7 @@ public class PrincessController : MonoBehaviour {
         Cursor.visible = false;
         crossHairColor.color = Color.red;
 
-        difference = weaponPivotPoint.position - crosshair.transform.position;
+        difference = weaponPivot.position - crosshair.transform.position;
         difference.Normalize();
 
         rotation = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;

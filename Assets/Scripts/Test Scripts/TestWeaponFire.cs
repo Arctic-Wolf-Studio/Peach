@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class TestWeaponFire : MonoBehaviour {
@@ -17,7 +16,7 @@ public class TestWeaponFire : MonoBehaviour {
 
     public int bulletsLeft, bulletsShot;
 
-    public bool shooting, readyToShoot, reloading;
+    public bool shooting, readyToShoot, reloading, compareFire;
     public bool isWandOfRandom;
 
     public float offset;
@@ -54,7 +53,10 @@ public class TestWeaponFire : MonoBehaviour {
     }
 
     private void Update() {
-        Fire();
+        if (!compareFire) {
+            Fire();
+        }
+        Fire2();
         //transform.rotation = Quaternion.Euler(0f, 0f, princess.crosshair.transform.rotation.z);
     }
 
@@ -68,11 +70,23 @@ public class TestWeaponFire : MonoBehaviour {
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0) {
             bulletsShot = 0;
             Shoot();
-            Debug.Log("fire");
         }
         if (readyToShoot && autoFire && !allowButtonHold) { Shoot(); }
         if (readyToShoot && shooting && !reloading && isWandOfRandom && bulletsLeft > 0) {
             SpawnObjects();
+        }
+    }
+
+    private void Fire2() {
+
+        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
+        else shooting = Input.GetKeyUp(KeyCode.Mouse0);
+
+        //if (readyToShoot && shooting && !reloading && bulletsLeft <=0) Reload();
+
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0) {
+            bulletsShot = 0;
+            Shoot2();
         }
     }
 
@@ -144,6 +158,33 @@ public class TestWeaponFire : MonoBehaviour {
             Invoke("Shoot", timeBetweeenShots);
         }
     }
+
+    public void Shoot2() {
+
+        readyToShoot = false;
+        //shotMovement?.Invoke(shootForce, upwardForce);
+
+        float y = UnityEngine.Random.Range(-spread, spread);
+
+        float Distance = followCursor.difference.magnitude;
+        Vector2 shootDirection = followCursor.difference / Distance;
+        shootDirection.Normalize();
+
+        GameObject bullet = Instantiate(projectile, barrel.position, Quaternion.Euler(0, 0, followCursor.rotationZ));
+        bullet.GetComponent<Rigidbody2D>().velocity = shootDirection * -shootForce;
+
+        bulletsLeft--;
+        bulletsShot--;
+
+        if (allowInvoke) {
+            Invoke("ResetShot", fireRate);
+            allowInvoke = false;
+        }
+
+        if (bulletsShot > 0 && bulletsLeft > 0)
+            Invoke("Shoot", timeBetweeenShots);
+    }
+
     private void ResetShot() {
         readyToShoot = true;
         allowInvoke = true;
