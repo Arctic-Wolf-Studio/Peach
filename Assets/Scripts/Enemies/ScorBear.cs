@@ -57,14 +57,13 @@ public class ScorBear : MonoBehaviour {
         StartCoroutine(level.GameOver());
         princess.position = scorTail.position;
         princessRB.constraints = RigidbodyConstraints2D.FreezePositionY;
-        princess.GetComponent<CapsuleCollider2D>().enabled = false;
         sprite.flipX = true;
         transform.position = Vector2.MoveTowards(transform.position, level.startPoint.position, Time.deltaTime * captureSpeed);
     }
 
     private void MoveTowardPrincess() {
         if (cannon.cannonFire && princess.position.x > MaxDist && !level.gameOver) {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(princess.position.x - 4, princess.position.y + 1), Time.deltaTime * speed);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(princess.position.x - 1, princess.position.y + 1), Time.deltaTime * speed);
         }
         transform.right = princess.position - transform.position;
     }

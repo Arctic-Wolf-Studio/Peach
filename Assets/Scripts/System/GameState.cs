@@ -16,7 +16,7 @@ public class GameState : MonoBehaviour {
     {
         GameIsPaused = false;
         Time.timeScale = 1f;
-        //DontDestroyOnLoad(lu);
+        DontDestroyOnLoad(level);
     }
 
     private void Start()
@@ -46,8 +46,8 @@ public class GameState : MonoBehaviour {
         Time.timeScale = 0f;       
         GameIsPaused = true;
         Cursor.visible = true;
-        distanceCounter.text = "Distance: " + level.distance.ToString("F2") + " m";
-        purse.text = "" + princess.coins;
+        distanceCounter.text = $"Distance: {level.distance.ToString("F2")}m";
+        purse.text = $"{princess.coins}";
     }
 
     public void Resume() {
