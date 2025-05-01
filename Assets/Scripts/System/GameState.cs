@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class GameState : MonoBehaviour {
 
     public LevelManager level;
-    public PrincessObject princess;
     public static bool GameIsPaused = false;
     public GameObject Pause_Menu;
     public GameObject powerUps;
@@ -14,14 +13,10 @@ public class GameState : MonoBehaviour {
 
     private void Awake()
     {
+        level = LevelManager.GetLevelManager();
         GameIsPaused = false;
         Time.timeScale = 1f;
         DontDestroyOnLoad(level);
-    }
-
-    private void Start()
-    {
-        level = LevelManager.GetLevelManager();
     }
 
     void Update() {
@@ -46,8 +41,8 @@ public class GameState : MonoBehaviour {
         Time.timeScale = 0f;       
         GameIsPaused = true;
         Cursor.visible = true;
-        distanceCounter.text = $"Distance: {level.distance.ToString("F2")}m";
-        purse.text = $"{princess.coins}";
+        distanceCounter.text = $"Distance {level.distance.ToString("F2")}m";
+        purse.text = $"{SystemUpdate.instance.princess.coins}";
     }
 
     public void Resume() {
@@ -61,5 +56,8 @@ public class GameState : MonoBehaviour {
 
     public void Quit() {
         SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+        Cursor.visible = false;
     }
 }

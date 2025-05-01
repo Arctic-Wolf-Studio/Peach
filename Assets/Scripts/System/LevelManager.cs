@@ -83,7 +83,7 @@ public class LevelManager : MonoBehaviour {
         ScoreUpdate();
 
         //&& Weapon.magazine == 0
-        if (weapon.bulletsLeft == 0 && princess.OnGround()) { //implement after Bailey has completed the princess.
+        if (weapon.bulletsLeft == 0 && princess.rb.velocity.magnitude < 1f) { //implement after Bailey has completed the princess.
             gameOver = true;
             Debug.Log("game over" + gameOver);
         }

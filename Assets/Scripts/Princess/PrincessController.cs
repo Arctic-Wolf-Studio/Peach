@@ -13,7 +13,7 @@ public class PrincessController : MonoBehaviour {
     public static Action OnCollision;
 
     [SerializeField] private PrincessObject stats;
-    [SerializeField] public PrincessUpdate update;
+    public PrincessUpdate update;
     [SerializeField] private WeaponFire weapon; 
 
     public GameObject crosshair; 
@@ -21,7 +21,6 @@ public class PrincessController : MonoBehaviour {
     [SerializeField] Transform weaponPivot;
 
     [SerializeField] private LayerMask ground;
-    [SerializeField] public Transform groundCheck;
     public Rigidbody2D rb;
 
     [SerializeField] float rotationSpeed;
@@ -76,20 +75,21 @@ public class PrincessController : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (OnGround()) {
+        if (collision.gameObject.layer == 10) {
             Debug.Log("hit the ground");
             EnterGroundCollision?.Invoke(update.collisionGround);
             OnCollision?.Invoke();
-        } else if (collision.gameObject.CompareTag("Enemy")) {
+        }
+         if (collision.gameObject.CompareTag("Enemy")) {
             EnterAirCollision?.Invoke(update.collisionAir);
         } else {
             EnterIdleCollision?.Invoke(true);
         }
     }
 
-    public bool OnGround() {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, ground);
-    }
+/*    public bool OnGround() {
+        return Physics2D.OverlapCircle(transform.position, 0.1f, ground);
+    }*/
 
     private void PrincessRotation() {
 
