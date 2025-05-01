@@ -10,6 +10,8 @@ public class PrincessController : MonoBehaviour {
     public static Action<bool> EnterGroundCollision;
     public static Action<bool> EnterIdleCollision;
 
+    public static Action OnCollision;
+
     [SerializeField] private PrincessObject stats;
     [SerializeField] public PrincessUpdate update;
     [SerializeField] private WeaponFire weapon; 
@@ -26,7 +28,7 @@ public class PrincessController : MonoBehaviour {
     [SerializeField] float maxHeight;
     public float rotation;
 
-    [HideInInspector] public Vector3 mousePosition, worldPosition, difference;
+    [HideInInspector] public Vector3 mousePosition, difference;
 
     [SerializeField] private bool testMovement;
 
@@ -77,7 +79,7 @@ public class PrincessController : MonoBehaviour {
         if (OnGround()) {
             Debug.Log("hit the ground");
             EnterGroundCollision?.Invoke(update.collisionGround);
-            weapon.bulletsLeft--;
+            OnCollision?.Invoke();
         } else if (collision.gameObject.CompareTag("Enemy")) {
             EnterAirCollision?.Invoke(update.collisionAir);
         } else {
@@ -85,7 +87,7 @@ public class PrincessController : MonoBehaviour {
         }
     }
 
-    private bool OnGround() {
+    public bool OnGround() {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, ground);
     }
 

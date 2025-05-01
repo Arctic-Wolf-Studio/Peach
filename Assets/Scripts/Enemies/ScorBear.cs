@@ -19,7 +19,7 @@ public class ScorBear : MonoBehaviour {
     public int knockback = 2;
     public int captureSpeed = 10;
 
-    [SerializeField] private bool toCapture, toMove;
+    [SerializeField] private bool toCapture;
 
     private void Awake() {
         instance = this;
@@ -31,26 +31,27 @@ public class ScorBear : MonoBehaviour {
         cannon = Cannon.GetCannon();
         level = LevelManager.GetLevelManager();
         princess = PrincessController.GetPrincessController().transform;
-        princessRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-
-        toMove = true;
     }
 
     private void Update() {
         transform.position = new Vector2(transform.position.x, Mathf.Clamp(transform.position.y, 10, 10000));
 
-        if (toMove) MoveTowardPrincess();
-        if (toCapture) CapturePrincess();
+        if (cannon.cannonFire) Move();
+        if (level.gameOver) CapturePrincess();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {    
 
         if (other.CompareTag("Player")) {
-            toMove = false;
             toCapture = true;
         }
+    }
+
+    private void Move() {
+        if (princess.position.x > MaxDist) MoveTowardPrincess();
+        if (toCapture) CapturePrincess();
     }
 
     private void CapturePrincess() {
@@ -62,9 +63,9 @@ public class ScorBear : MonoBehaviour {
     }
 
     private void MoveTowardPrincess() {
-        if (cannon.cannonFire && princess.position.x > MaxDist && !level.gameOver) {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(princess.position.x - 1, princess.position.y + 1), Time.deltaTime * speed);
-        }
-        transform.right = princess.position - transform.position;
+
+        rb.velocity = new Vector2(1, 1) * speed;
+        transform.position = Vector2.MoveTowards(transform.position, princess.position, 1) * Time.deltaTime;
+        if (Vector2.Distance(transform.position, princess.transform.position) < 1) CapturePrincess();
     }
 }

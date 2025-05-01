@@ -38,6 +38,12 @@ public class WeaponFire : MonoBehaviour {
     public GameObject projectile;
 
     public bool allowInvoke = true;
+    private void OnEnable() {
+        PrincessController.OnCollision += LostAmmo;
+    }
+    private void OnDisable() {
+        PrincessController.OnCollision -= LostAmmo;
+    }
 
     private void Awake() {
         cannon = Cannon.GetCannon();
