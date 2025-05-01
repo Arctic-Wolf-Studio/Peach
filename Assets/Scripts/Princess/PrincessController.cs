@@ -80,16 +80,16 @@ public class PrincessController : MonoBehaviour {
             EnterGroundCollision?.Invoke(update.collisionGround);
             OnCollision?.Invoke();
         }
-         if (collision.gameObject.CompareTag("Enemy")) {
+        if (collision.gameObject.CompareTag("Enemy")) {
             EnterAirCollision?.Invoke(update.collisionAir);
         } else {
             EnterIdleCollision?.Invoke(true);
         }
     }
 
-/*    public bool OnGround() {
-        return Physics2D.OverlapCircle(transform.position, 0.1f, ground);
-    }*/
+    /*    public bool OnGround() {
+            return Physics2D.OverlapCircle(transform.position, 0.1f, ground);
+        }*/
 
     private void PrincessRotation() {
 
